@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+label {
+  width: 304px;
+  height: 56px;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+  background: #fafbfa;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  position: relative;
+}
+label::before {
+  position: absolute;
+  top: 16px;
+  left: 35px;
+  content: '';
+  height: 21px;
+  width: 21px;
+  background: url(../../tempIMG/Ellipse\ 1.svg);
+  background-repeat: no-repeat;
+}
+.search-input {
+  width: 304px;
+  height: 56px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  padding: 0 67px;
+}

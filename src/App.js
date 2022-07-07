@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Search from './components/Search/Search';
+import AgePopUp from './components/PopUps/AgePopUp';
+import React from 'react';
 
 function App() {
+  const [allow, setAllow] = React.useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <img
+        src={require('./tempIMG/ccLandscape2-day.png')}
+        alt="logo"
+        aria-hidden="true"
+        className="entry-logo-S"
+      />
+      <img
+        src={require('./tempIMG/ccLandscape1-day.png')}
+        alt="logo"
+        aria-hidden="true"
+        className="entry-logo-X"
+      />
+      {!allow && (
+        <AgePopUp
+          handleAllow={() => setAllow(true)}
+          handleDeny={() => setAllow(false)}
+        />
+      )}
+      <Search />
+      <button className="entry-button">Enter</button>
     </div>
   );
 }
