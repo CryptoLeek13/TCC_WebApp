@@ -3,10 +3,10 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  padding-top: 15em;
   background-color: #fafbfa;
 }
 .entry-logo-S {
+  padding-top: 15em;
   display: block;
   width: 270px;
   height: auto;
@@ -33,6 +33,7 @@
 }
 @media screen and (min-width: 536px) {
   .entry-logo-X {
+    padding-top: 10em;
     display: block;
     width: 360px;
     height: auto;
@@ -45,7 +46,6 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    padding-top: 10em;
     background-color: #fafbfa;
   }
   .entry-button {
