@@ -1,0 +1,18 @@
+.menu-box {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+}
+.menu-box span:nth-child(1),
+.menu-box span:nth-child(3) {
+  width: 35px;
+  height: 5px;
+  background-color: #d1dcd9;
+  border-radius: 20px;
+}
+.menu-box span:nth-child(2) {
+  width: 30px;
+  height: 5px;
+  background-color: #d1dcd9;
+  border-radius: 20px;
+}

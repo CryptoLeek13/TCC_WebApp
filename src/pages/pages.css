@@ -1,0 +1,32 @@
+/* Home */
+
+.navbar {
+  display: flex;
+  height: 106px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  border-bottom: 2px solid #002e2033;
+}
+.navbar img {
+  width: 44px;
+  height: 44px;
+}
+.wrapper img {
+  width: 74px;
+  height: 74px;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+@media screen and (min-width: 536px) {
+  .navbar {
+    display: flex;
+    height: 106px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 39px;
+    border-bottom: 2px solid #002e2033;
+  }
+}

@@ -2,32 +2,18 @@ import './App.css';
 import Search from './components/Search/Search';
 import AgePopUp from './components/PopUps/AgePopUp';
 import React from 'react';
+import { Routes, Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import Home from './pages/Home';
+import Authorisation from './components/Authorisation';
 
 function App() {
-  const [allow, setAllow] = React.useState(false);
   return (
-    <div className="container">
-      <img
-        src={require('./tempIMG/ccLandscape2-day.png')}
-        alt="logo"
-        aria-hidden="true"
-        className="entry-logo-S"
-      />
-      <img
-        src={require('./tempIMG/ccLandscape1-day.png')}
-        alt="logo"
-        aria-hidden="true"
-        className="entry-logo-X"
-      />
-      {!allow && (
-        <AgePopUp
-          handleAllow={() => setAllow(true)}
-          handleDeny={() => setAllow(false)}
-        />
-      )}
-      <Search />
-      <button className="entry-button">Enter</button>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Authorisation />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -3,21 +3,21 @@
   margin: 0;
   box-sizing: border-box;
 }
-label {
+.search-label {
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
   background: #fafbfa;
   border-radius: 30px;
   position: relative;
   margin-top: 3em;
 }
-label::before {
+.search-label::before {
   position: absolute;
   top: 5px;
   left: 30px;
-  content: "";
-  height: 18px;
-  width: 18px;
-  background: url(../../tempIMG/Ellipse\ 1.svg);
+  content: '';
+  height: 23px;
+  width: 23px;
+  background: url(../../tempIMG/search.svg);
   background-repeat: no-repeat;
 }
 .search-input {
@@ -26,7 +26,7 @@ label::before {
   border-radius: 30px;
   outline: none;
   border: none;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 450;
   font-size: 14px;
@@ -34,13 +34,48 @@ label::before {
   padding: 0 65px;
 }
 
+/* SEARCH FANCY */
+
+#search-fancy {
+  width: 180px;
+  font-size: 18px;
+  color: #3a3b3c;
+  border: none;
+  border-bottom: 2px solid #d1dcd9;
+  outline: none;
+}
+.search-fancy-label {
+  margin-left: 40px;
+  position: relative;
+}
+.search-fancy-label::before {
+  position: absolute;
+  left: -30px;
+  content: '';
+  height: 23px;
+  width: 23px;
+  background: url(../../tempIMG/search.svg);
+  background-repeat: no-repeat;
+}
 @media screen and (min-width: 536px) {
-  label {
+  .search-label {
     margin-top: 3em;
   }
   .search-input {
     font-size: 12px;
     width: 260px;
     height: 40px;
+  }
+  #search-fancy {
+    width: 240px;
+    font-size: 28px;
+    color: #3a3b3c;
+    border: none;
+    border-bottom: 2px solid #d1dcd9;
+    outline: none;
+  }
+  .search-fancy-label {
+    margin-left: 60px;
+    position: relative;
   }
 }
