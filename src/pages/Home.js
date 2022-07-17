@@ -1,4 +1,5 @@
 import React from 'react';
+import Filters from '../components/Filters/Filters';
 import Menu from '../components/Menu/Menu';
 import SearchFancy from '../components/Search/SearchFancy';
 import './pages.css';
@@ -13,6 +14,7 @@ function Home() {
         </div>
         <img src={require('../tempIMG/user.png')} />
       </div>
+      <Filters />
     </section>
   );
 }

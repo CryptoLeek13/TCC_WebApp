@@ -1,0 +1,55 @@
+.card {
+  display: flex;
+  padding: 19px 0 24px 38px;
+  border-bottom: 2px solid #002e2033;
+  cursor: pointer;
+}
+.card-shop_details {
+  margin-left: 39px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.shop-name {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  padding: 0 0 5px 0;
+  color: #3a3b3c;
+}
+.shop-location {
+  font-family: 'Montserrat';
+  padding: 0 0 18px 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+.shop-assignments {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 0 0 9px 0;
+  color: #3a3b3c;
+}
+.shop-orders {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 0 0 19px 0;
+  color: #3a3b3c;
+}
+.shop-in-pill h4 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #3a3b3c;
+}
