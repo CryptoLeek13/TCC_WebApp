@@ -42,7 +42,11 @@ function Filters() {
           >
             {distance > 0 ? distance : 'Distance'}
             <span className="drop-arrow">
-              <img src={require('../../tempIMG/dropdown.png')}></img>
+              <img
+                src={require('../../tempIMG/dropdown.png')}
+                alt="dropdown"
+                aria-hidden="true"
+              ></img>
             </span>
           </div>
           <ul style={dropdownSwitch ? active : dropdown}>

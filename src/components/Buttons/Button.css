@@ -3,13 +3,21 @@
   border-radius: 30px;
   border: none;
   box-shadow: 0px 4px 4px 0px #00000040;
-  width: 150px;
-  height: 42px;
-  cursor: pointer;
+  width: 100px;
+  height: 34px;
   font-family: 'Nunito', sans-serif;
+  cursor: pointer;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 27px;
+  font-size: 13px;
+  line-height: 16px;
   text-align: center;
+}
+@media screen and (min-width: 500px) {
+  .filter-button {
+    width: 150px;
+    height: 42px;
+    font-size: 20px;
+    line-height: 27px;
+  }
 }

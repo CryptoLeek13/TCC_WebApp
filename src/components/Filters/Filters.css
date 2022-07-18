@@ -1,5 +1,5 @@
 .filters {
-  padding: 0 51px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -17,25 +17,26 @@
   border-radius: 30px;
   border: none;
   box-shadow: 0px 4px 4px 0px #00000040;
-  width: 180px;
-  height: 42px;
+  width: 100px;
+  height: 34px;
   font-family: 'Nunito', sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 27px;
+  font-size: 15px;
+  line-height: 18px;
   text-align: center;
   display: flex;
   align-items: center;
-  gap: 30px;
+  margin-left: 42px;
+  gap: 5px;
   z-index: 10;
   cursor: pointer;
   position: relative;
   justify-content: center;
 }
 .drop-arrow {
-  width: 40px;
-  height: 30px;
+  width: 20px;
+  height: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +47,7 @@
   list-style: none;
   display: flex;
   align-items: center;
-  width: 180px;
+  width: 100px;
   height: 30px;
   color: #333;
   font-family: 'Nunito', sans-serif;
@@ -65,4 +66,36 @@
 .dropdown-filter li:nth-child(1) {
   height: 50px;
   padding-top: 20px;
+}
+.dropdown-filter ul {
+  margin-left: 42px;
+}
+
+@media screen and (min-width: 500px) {
+  .distance {
+    width: 180px;
+    height: 42px;
+    gap: 30px;
+    font-size: 20px;
+    line-height: 27px;
+    margin: 0;
+  }
+  .drop-arrow {
+    width: 40px;
+    height: 30px;
+  }
+  .dropdown-filter ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    width: 180px;
+    height: 30px;
+    color: #333;
+    font-family: 'Nunito', sans-serif;
+    border-bottom: 1px solid rgb(206, 206, 206);
+    padding: 0 0 0 20px;
+  }
+  .dropdown-filter ul {
+    margin: 0;
+  }
 }

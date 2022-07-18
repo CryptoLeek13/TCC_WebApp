@@ -1,18 +1,21 @@
 import React from 'react';
 import Filters from '../components/Filters/Filters';
-import Menu from '../components/Menu/Menu';
 import SearchFancy from '../components/Search/SearchFancy';
 import './pages.css';
+import { useLocation } from 'react-router-dom';
 
 function Home() {
+  const location = useLocation();
   return (
     <section className="main-page">
       <div className="navbar">
         <div className="wrapper">
-          <img src={require('../tempIMG/logo.png')} />
-          <SearchFancy placeholder="Calabasas, CA" />
+          <img src={require('../tempIMG/logo.png')} alt="logo" />
+          <SearchFancy
+            placeholder={location != null ? location.state : 'Location'}
+          />
         </div>
-        <img src={require('../tempIMG/user.png')} />
+        <img src={require('../tempIMG/user.png')} alt="user" />
       </div>
       <Filters />
     </section>

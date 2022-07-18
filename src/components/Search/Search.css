@@ -36,9 +36,9 @@
 
 /* SEARCH FANCY */
 .fancy-search {
-  margin-left: 60px;
+  margin-left: 30px;
   height: 40px;
-  width: 180px;
+  width: 130px;
   position: relative;
 }
 .fancy-search input {
@@ -85,9 +85,16 @@
   transition-duration: 0.3s ease-in-out;
 }
 
+@media screen and (min-width: 375px) {
+  .fancy-search {
+    width: 180px;
+  }
+}
+
 @media screen and (min-width: 536px) {
   .fancy-search {
     width: 240px;
+    margin-left: 60px;
   }
   .fancy-search input {
     font-size: 28px;

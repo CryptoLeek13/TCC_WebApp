@@ -1,10 +1,32 @@
 import React from 'react';
 import AgePopUp from './PopUps/AgePopUp';
 import Search from './Search/Search';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Authorisation() {
   const [allow, setAllow] = React.useState(false);
+  const [location, setLocation] = React.useState('');
+  const [activate, setActivate] = React.useState(false);
+  const navigate = useNavigate();
+  const local = localStorage.getItem('location');
+  const age = localStorage.getItem('age');
+
+  React.useEffect(() => {
+    if (activate) {
+      localStorage.setItem('location', location);
+      navigate('/home', { state: location });
+    }
+  }, [activate, location, navigate]);
+
+  const saveAge = () => {
+    localStorage.setItem('age', allow);
+  };
+
+  React.useEffect(() => {
+    if (local != null && age) {
+      navigate('/home', { state: local });
+    }
+  });
   return (
     <div className="container">
       <img
@@ -19,16 +41,29 @@ function Authorisation() {
         aria-hidden="true"
         className="entry-logo-X"
       />
-      {!allow && (
+      {!age && (
         <AgePopUp
-          handleAllow={() => setAllow(true)}
-          handleDeny={() => setAllow(false)}
+          handleAllow={() => {
+            setAllow(true);
+            saveAge();
+          }}
+          handleDeny={() => {
+            setAllow(false);
+            saveAge();
+          }}
         />
       )}
-      <Search placeholder="Enter Location" />
-      <Link to="/home">
-        <button className="entry-button">Enter</button>
-      </Link>
+      <Search
+        placeholder="Enter Location"
+        location={location}
+        handleLocation={setLocation}
+      />
+      <button
+        className="entry-button"
+        onClick={() => setActivate((prev) => !prev)}
+      >
+        Enter
+      </button>
     </div>
   );
 }

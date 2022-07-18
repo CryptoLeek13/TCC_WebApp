@@ -8,6 +8,8 @@ const Search = (props) => {
         type="text"
         placeholder={props.placeholder}
         className="search-input"
+        value={props.location}
+        onChange={(e) => props.handleLocation(e.target.value)}
       />
     </label>
   );
