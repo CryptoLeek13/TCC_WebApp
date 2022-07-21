@@ -9,16 +9,16 @@
   border-bottom: 2px solid #002e2033;
 }
 .navbar img {
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
 }
 .wrapper img {
-  width: 74px;
-  height: 74px;
+  width: 70px;
+  height: 70px;
 }
 .wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 @media screen and (min-width: 536px) {
   .navbar {

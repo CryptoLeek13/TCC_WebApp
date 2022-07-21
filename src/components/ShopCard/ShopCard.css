@@ -1,61 +1,63 @@
 .card {
   display: flex;
-  padding: 12px 0 16px 13px;
+  padding: 10px 0 10px 10px;
   border-bottom: 2px solid #002e2033;
   cursor: pointer;
 }
 .card img {
-  height: 119px;
+  height: 130px;
   width: 110px;
 }
 .card-shop_details {
-  margin-left: 15px;
+  margin-left: 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .shop-name {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 20px;
-  padding: 0 0 4px 0;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 16px;
+  margin-top: 10px;
+  padding: 0 0 8px 0;
   color: #3a3b3c;
 }
 .shop-location {
-  font-family: 'Montserrat';
-  padding: 0 0 10px 0;
+  font-family: "Montserrat";
+  padding: 0 0 12px 0;
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 15px;
 }
 .shop-assignments {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 15px;
   padding: 0 0 4px 0;
   color: #3a3b3c;
 }
 .shop-orders {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 15px;
-  padding: 0 0 5px 0;
+  padding: 0 0 4px 0;
   color: #3a3b3c;
 }
 .shop-in-pill h3 {
-  font-size: 12px;
-  font-family: 'Montserrat';
+  font-size: 11px;
+  font-family: "Montserrat";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 15px;
   color: #3a3b3c;
+  margin-bottom: 10px;
 }
 @media screen and (min-width: 550px) {
   .card-shop_details {
@@ -66,7 +68,7 @@
     height: 140px;
   }
   .shop-name {
-    font-size: 24px;
+    font-size: 20px;
   }
   .shop-location {
     padding: 0 0 9px 0;
@@ -93,29 +95,35 @@
     cursor: pointer;
   } */
   .card-shop_details {
-    margin-left: 39px;
+    margin-left: 28px;
+  }
+  .card {
+    padding: 20px 0 20px 20px;
   }
   .card img {
-    width: 311px;
+    width: 290px;
     height: 210px;
   }
   .shop-name {
-    font-size: 28px;
+    font-size: 23px;
+    padding-bottom: 16px;
+    margin-top: 5px;
   }
   .shop-location {
-    padding: 0 0 18px 0;
-    font-size: 18px;
+    padding: 0 0 26px 0;
+    font-size: 15px;
   }
   .shop-assignments {
-    font-size: 18px;
-    padding: 0 0 9px 0;
+    font-size: 14px;
+    padding: 0 0 7px 0;
     line-height: 22px;
   }
   .shop-orders {
-    font-size: 18px;
-    padding: 0 0 19px 0;
+    font-size: 14px;
+    padding: 0 0 10px 0;
   }
   .shop-in-pill h3 {
-    font-size: 18px;
+    font-size: 14px;
+    margin-bottom: 5px;
   }
 }
