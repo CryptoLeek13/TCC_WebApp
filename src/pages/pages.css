@@ -30,3 +30,151 @@
     border-bottom: 2px solid #002e2033;
   }
 }
+
+/* ShopPage */
+.selected-shop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #002e2033;
+  padding: 0 23px;
+}
+.selected-shop-card {
+  display: flex;
+  padding: 10px 0 10px 10px;
+  border-bottom: none;
+}
+.hours-of-operation {
+  margin-right: 118px;
+}
+.hours-of-operation h3 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #3a3b3c;
+}
+.hours-grid {
+  display: grid;
+  grid-template-columns: 120px 130px;
+}
+.days {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+  color: #3a3b3c;
+}
+.hours {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #3a3b3c;
+}
+.contact {
+  display: flex;
+  gap: 4px;
+  width: max-content;
+}
+.call-btn {
+  background: #d1dcd9;
+  border-radius: 15px;
+  width: 85px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+  text-align: center;
+  padding: 10px 0;
+  color: #000000;
+}
+.dir-btn {
+  background: #d1dcd9;
+  border-radius: 15px;
+  width: 85px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+  text-align: center;
+  padding: 10px 0;
+  color: #000000;
+}
+.shop-filters {
+  display: flex;
+  gap: 10px;
+}
+.product,
+.sort-by {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #edeaee;
+  border-radius: 30px;
+  width: 130px;
+  height: 44px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+}
+.products-section {
+  padding: 12px 39px;
+}
+.products-section h2 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+  color: #3a3b3c;
+  margin-top: 65px;
+  margin-left: 3px;
+}
+.flowers {
+  margin-top: 17px;
+}
+.flowers h3 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin-left: 3px;
+  color: #3a3b3c;
+}
+.item {
+  margin-top: 18px;
+  width: 219px;
+  height: 426px;
+  padding: 0 19px;
+  background: #c5d3cf;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-direction: column;
+}
+.item p {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 29px;
+  text-align: center;
+  text-decoration-line: underline;
+  color: #3a3b3c;
+}
+.items-wrapper {
+  display: flex;
+  gap: 13px;
+}

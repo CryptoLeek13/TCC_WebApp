@@ -1,7 +1,8 @@
 import React from 'react';
-import Button from '../Buttons/Button';
+import Button from '../Buttons/FilterButton/Button';
 import './Filters.css';
 import ShopCard from '../ShopCard/ShopCard';
+import { Link } from 'react-router-dom';
 
 function Filters() {
   const [dropdownSwitch, setDropdownSwitch] = React.useState(false);
@@ -96,6 +97,7 @@ function Filters() {
       <section className="data">
         {/* here I will map throught the API and if filter exists result will be filterd by the filter */}
         <ShopCard
+          id={1}
           img="shopIMg.png"
           name="Planet 13"
           location="Woodland Hills, CA, 1.2 Miles Away"
@@ -104,6 +106,7 @@ function Filters() {
           info="Open 24/7, Delivery and Pickup Available"
         />
         <ShopCard
+          id={2}
           img="shopIMg.png"
           name="Planet 13"
           location="Woodland Hills, CA, 1.2 Miles Away"
@@ -112,6 +115,7 @@ function Filters() {
           info="Open 24/7, Delivery and Pickup Available"
         />
         <ShopCard
+          id={3}
           img="shopIMg.png"
           name="Planet 13"
           location="Woodland Hills, CA, 1.2 Miles Away"

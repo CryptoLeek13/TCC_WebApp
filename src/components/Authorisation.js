@@ -7,7 +7,9 @@ function Authorisation() {
   const [allow, setAllow] = React.useState(false);
   const [location, setLocation] = React.useState('');
   const [activate, setActivate] = React.useState(false);
+
   const navigate = useNavigate();
+
   const local = localStorage.getItem('location');
   const age = localStorage.getItem('age');
 
