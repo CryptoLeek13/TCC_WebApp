@@ -9,8 +9,6 @@ function Navbar({ backBtn }) {
   const dispatch = useDispatch();
   dispatch({ type: 'SET_LOC', payload: local });
   const location = useSelector((state) => state.location);
-
-  console.log(backBtn);
   return (
     <div className="navbar">
       <div className="wrapper">
