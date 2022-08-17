@@ -14,7 +14,7 @@
   position: absolute;
   top: 10px;
   left: 30px;
-  content: '';
+  content: "";
   height: 23px;
   width: 23px;
   background: url(../../tempIMG/search.svg);
@@ -26,7 +26,7 @@
   border-radius: 30px;
   outline: none;
   border: none;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 450;
   font-size: 14px;
@@ -71,7 +71,7 @@
   width: 20px;
 }
 .fancy-search label::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 2px;
   position: absolute;
