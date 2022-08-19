@@ -1,6 +1,6 @@
 .card {
   display: flex;
-  padding: 10px 0 10px 10px;
+  padding: 20px 0 20px 10px;
   border-bottom: 2px solid #002e2033;
   cursor: pointer;
 }
@@ -19,7 +19,7 @@ a {
   justify-content: center;
 }
 .shop-name {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -29,37 +29,37 @@ a {
   color: #3a3b3c;
 }
 .shop-location {
-  font-family: 'Montserrat';
-  padding: 0 0 12px 0;
+  font-family: "Montserrat";
+  padding: 0 0 10px 0;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 11px;
   line-height: 15px;
 }
 .shop-assignments {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 15px;
-  padding: 0 0 4px 0;
-  color: #3a3b3c;
-}
-.shop-orders {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
   line-height: 15px;
-  padding: 0 0 4px 0;
+  padding: 0 0 6px 0;
+  color: #3a3b3c;
+}
+.shop-orders {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 15px;
+  padding: 0 0 6px 0;
   color: #3a3b3c;
 }
 .shop-in-pill h4 {
   font-size: 11px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
-  font-weight: 600;
-  line-height: 15px;
+  font-weight: 500;
+  line-height: 18px;
   color: #3a3b3c;
   margin-bottom: 10px;
 }
@@ -110,7 +110,7 @@ a {
   }
   .shop-name {
     font-size: 23px;
-    padding-bottom: 10px;
+    padding-bottom: 14px;
     margin-top: 5px;
   }
   .shop-location {
@@ -130,6 +130,6 @@ a {
   .shop-in-pill h4 {
     font-size: 14px;
     margin-bottom: 0;
-    line-height: 22px;
+    line-height: 24px;
   }
 }
