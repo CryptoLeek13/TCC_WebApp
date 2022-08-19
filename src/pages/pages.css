@@ -2,19 +2,19 @@
 
 .navbar {
   display: flex;
-  height: 106px;
+  height: 66px;
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
-  border-bottom: 2px solid #002e2033;
+  border-bottom: 2px solid rgba(200, 187, 202, 0.5);
 }
 .navbar img {
   width: 32px;
   height: 32px;
 }
 .wrapper img {
-  width: 70px;
-  height: 70px;
+  width: 32px;
+  height: 33px;
 }
 .wrapper {
   display: flex;
@@ -23,20 +23,29 @@
 @media screen and (min-width: 536px) {
   .navbar {
     display: flex;
-    height: 106px;
     align-items: center;
     justify-content: space-between;
     padding: 0 39px;
-    border-bottom: 2px solid #002e2033;
+    border: none;
+    height: 86px;
+  }
+  .wrapper img {
+    height: 53px;
+    width: 52px;
   }
 }
 
 /* ShopPage */
+.section-wrapper {
+  position: relative;
+  top: 50px;
+}
 .selected-shop {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #002e2033;
+  border-bottom: 2px solid rgba(200, 187, 202, 0.5);
+  border-top: 2px solid rgba(200, 187, 202, 0.5);
   padding: 0 10px;
 }
 .selected-shop-card {
@@ -52,7 +61,7 @@
 }
 
 .hours-of-operation h3 {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -64,7 +73,7 @@
   grid-template-columns: 120px 130px;
 }
 .days {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
@@ -72,7 +81,7 @@
   color: #3a3b3c;
 }
 .hours {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -85,11 +94,12 @@
   width: max-content;
 }
 .call-btn {
-  background: #d1dcd9;
-  border-radius: 18px;
-  width: 85px;
-  height: 35px;
-  font-family: "Montserrat";
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 37px;
+  height: 37px;
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -98,13 +108,22 @@
   padding: 10px 0;
   color: #000000;
 }
+.call-btn img {
+  width: 18px;
+  height: 18px;
+}
+.dir-btn img {
+  width: 18px;
+  height: 18px;
+}
 .dir-btn {
-  background: #d1dcd9;
-  border-radius: 18px;
-  width: 85px;
-  height: 35px;
-  font-family: "Montserrat";
+  background: white;
+  border-radius: 50%;
+  width: 37px;
+  height: 37px;
+  font-family: 'Montserrat';
   font-style: normal;
+  border: 1px solid rgba(0, 0, 0, 0.3);
   font-weight: 500;
   font-size: 14px;
   /* line-height: 21px; */
@@ -115,28 +134,33 @@
 .shop-filters {
   display: flex;
   gap: 10px;
+  padding: 0 10px;
 }
 .product,
 .sort-by {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #edeaee;
-  border-radius: 30px;
-  width: 130px;
-  height: 44px;
-  font-family: "Montserrat";
-  font-style: normal;
+  /* background: #edeaee; */
+  /* border-radius: 30px; */
+  width: 100px;
+  height: 34px;
+  font-family: 'Montserrat';
+  /* font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  color: #000000;
+  color: #000000; */
+  background: #faf9fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 .products-section {
-  padding: 12px 20px;
+  padding: 12px 0;
 }
 .products-section h2 {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
   font-size: 22px;
@@ -149,7 +173,7 @@
   margin-top: 17px;
 }
 .flowers h3 {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -159,44 +183,161 @@
   margin-bottom: 10px;
 }
 .item {
-  width: 110px;
-  height: 200px;
-  padding: 0 10px;
-  background: #c5d3cf;
-  border-radius: 20px;
+  width: 179px;
+  height: 245px;
+  padding: 9px 25px;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 4px;
+  gap: 10px;
   flex-direction: column;
   margin-bottom: 4px;
 }
-.item p {
-  font-family: "Nunito";
+.item-taste {
+  font-family: 'Nunito';
   font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 15px;
   line-height: 16px;
-  text-align: center;
   text-decoration-line: underline;
   color: #3a3b3c;
 }
+h2 {
+  padding: 0 10px 15px;
+}
+.item-title {
+  text-decoration-line: none;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  color: #3a3b3c;
+}
+.item-thc {
+  text-decoration-line: none;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  color: #3a3b3cc1;
+}
 .item img {
-  width: 100px;
-  height: 60px;
+  width: 128px;
+  height: 101px;
+  object-fit: cover;
+}
+.item button {
+  margin: 0 auto;
 }
 .items-wrapper {
   display: flex;
+  padding: 0 10px;
   gap: 6px;
-  flex-wrap: wrap;
+  scroll-behavior: smooth;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-
+.items-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.items-wrapper > * {
+  scroll-snap-align: start;
+}
+.left {
+  background-image: url(/src/tempIMG/left.png);
+  background-size: cover;
+  border: none;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.right {
+  background-image: url(/src/tempIMG/right.png);
+  background-size: cover;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.inline-wrapper_heading_scrolling {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.scrolling {
+  display: flex;
+  gap: 5px;
+}
+.more {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
 @media screen and (min-width: 536px) {
+  .section-wrapper {
+    top: 0;
+  }
+  .more {
+    font-size: 24px;
+  }
+  .flowers {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .left,
+  .right {
+    height: 30px;
+    width: 30px;
+  }
+  h2,
+  h3 {
+    padding-left: 20px;
+  }
+  .scrolling {
+    gap: 15px;
+    padding-right: 20px;
+  }
+  .product,
+  .sort-by {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: #edeaee; */
+    /* border-radius: 30px; */
+    width: 130px;
+    height: 44px;
+    font-family: 'Montserrat';
+    /* font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000; */
+    background: #faf9fa;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+  }
   .selected-shop {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid #002e2033;
+    border-bottom: 2px solid rgba(200, 187, 202, 0.5);
+    border-top: 2px solid rgba(200, 187, 202, 0.5);
     padding: 0 23px;
   }
   .selected-shop-card img {
@@ -209,40 +350,57 @@
   }
   .hours-of-operation {
     margin-right: 118px;
-    display: block;
+    display: none;
   }
   .item {
     margin-top: 18px;
-    width: 219px;
-    height: 426px;
-    padding: 0 19px;
-    background: #c5d3cf;
-    border-radius: 20px;
+    width: 296px;
+    height: 410px;
+    padding: 0 42px;
+    background: #ffffff;
+    box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
+
     gap: 15px;
     flex-direction: column;
   }
-  .item p {
-    font-family: "Nunito";
+  .item-taste {
+    font-family: 'Nunito';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 21px;
     line-height: 29px;
-    text-align: center;
     text-decoration-line: underline;
     color: #3a3b3c;
   }
+  .item-title {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    color: #3a3b3c;
+  }
+  .item-thc {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    color: #3a3b3cc1;
+  }
   .item img {
-    width: 185px;
+    width: 222px;
     height: 169px;
+    object-fit: cover;
   }
   .products-section {
     padding: 12px 39px;
   }
   .products-section h2 {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 26px;
@@ -253,38 +411,33 @@
   }
   .items-wrapper {
     display: flex;
-    gap: 13px;
+    margin: 0 auto;
+    gap: 22px;
+    max-width: 1270px;
   }
-  .call-btn {
-    background: #d1dcd9;
-    border-radius: 15px;
-    width: 120px;
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 21px;
-    text-align: center;
-    padding: 10px 0;
-    color: #000000;
+  .call-btn img,
+  .dir-btn img {
+    width: 28px;
+    height: 28px;
   }
+  .call-btn,
   .dir-btn {
-    background: #d1dcd9;
-    border-radius: 15px;
-    width: 120px;
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 21px;
-    text-align: center;
-    padding: 10px 0;
-    color: #000000;
+    height: 47px;
+    width: 47px;
   }
   .contact {
     display: flex;
     gap: 4px;
-    width: max-content;
+    width: min-content;
     margin-top: 14px;
+  }
+  .contact img {
+    width: 28px;
+    height: 28px;
+  }
+}
+@media screen and (min-width: 960px) {
+  .hours-of-operation {
+    display: block;
   }
 }

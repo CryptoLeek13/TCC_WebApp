@@ -12,7 +12,7 @@ function Navbar({ backBtn }) {
   return (
     <div className="navbar">
       <div className="wrapper">
-        <img src={require('../../tempIMG/logo.png')} alt="logo" />
+        <img src={require('../../tempIMG/kLogo.png')} alt="logo" />
         {backBtn ? <BackButton /> : null}
         <SearchFancy placeholder={location} />
       </div>

@@ -98,7 +98,7 @@ function Filters() {
         {/* here I will map throught the API and if filter exists result will be filterd by the filter */}
         <ShopCard
           id={1}
-          img="shopIMg.png"
+          img="shopImgBlackBorder.png"
           name="Planet 13"
           location="Woodland Hills, CA, 1.2 Miles Away"
           assignment="Medical, Recreation"
@@ -107,7 +107,7 @@ function Filters() {
         />
         <ShopCard
           id={2}
-          img="shopIMg.png"
+          img="shopImgBlackBorder.png"
           name="Planet 13"
           location="Woodland Hills, CA, 1.2 Miles Away"
           assignment="Medical, Recreation"
@@ -116,7 +116,7 @@ function Filters() {
         />
         <ShopCard
           id={3}
-          img="shopIMg.png"
+          img="shopImgBlackBorder.png"
           name="Planet 13"
           location="Woodland Hills, CA, 1.2 Miles Away"
           assignment="Medical, Recreation"

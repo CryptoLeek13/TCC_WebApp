@@ -1,15 +1,17 @@
 .modal-container {
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(15px);
   position: absolute;
-  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
   z-index: 10;
 }
+.modal_age img {
+  width: 238px;
+  height: 62px;
+}
 .modal_age {
+  background-color: #fafbfa;
   min-height: 200px;
   min-width: 340px;
-  background: rgba(0, 72, 49, 0.2);
   border-radius: 45px;
   display: flex;
   position: absolute;
@@ -27,55 +29,69 @@
 }
 .agree-button,
 .disagree-button {
-  width: 130px;
-  height: 55px;
-  padding-left: 1em;
-  padding-right: 1em;
+  width: 105px;
+  height: 40px;
   background: #f5f5f5;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 23px;
-  border: none;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0px 4px 20px #000000);
+  border-radius: 30px;
   outline: none;
-  font-family: "Maven Pro";
+  font-family: 'Maven Pro';
   font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 20px;
+  font-weight: 400;
+  font-size: 16px;
   text-align: center;
   color: #212121;
   cursor: pointer;
 }
 .clause {
-  font-family: "Maven Pro";
+  font-family: 'Maven Pro';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 32px;
   text-align: center;
-  color: #212121;
+  color: #741086;
   width: 290px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 55px;
-  background: #f5f5f5;
-  border-radius: 15px;
 }
-@media screen and (min-width: 586px) {
+@media screen and (min-width: 536px) {
   .modal_age {
     min-height: 220px;
     min-width: 460px;
   }
+  .modal_age img {
+    width: 438px;
+    height: 122px;
+  }
   .agree-button,
   .disagree-button {
-    width: 140px;
-    height: 60px;
-    font-size: 15px;
-    line-height: 22px;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    width: 135px;
+    height: 50px;
+    background: #f5f5f5;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0px 1px 20px #00000063);
+    border-radius: 30px;
+    outline: none;
+    font-family: 'Maven Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+    color: #212121;
+    cursor: pointer;
   }
   .clause {
     width: 340px;
+    height: 120px;
+    padding-top: 40px;
+    font-size: 27px;
+  }
+  .declaration-buttons {
+    display: flex;
+    gap: 60px;
   }
 }

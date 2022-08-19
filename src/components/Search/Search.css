@@ -6,48 +6,59 @@
 .search-label {
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
   background: #fafbfa;
-  border-radius: 30px;
+  border-radius: 40px;
   position: relative;
-  margin-top: 3em;
+  margin-top: 4em;
 }
-.search-label::before {
+.search-label::after {
   position: absolute;
-  top: 10px;
-  left: 30px;
-  content: "";
-  height: 23px;
-  width: 23px;
+  top: 14px;
+  right: 25px;
+  content: '';
+  height: 20px;
+  width: 20px;
   background: url(../../tempIMG/search.svg);
   background-repeat: no-repeat;
 }
 .search-input {
-  width: 250px;
-  height: 40px;
+  width: 225px;
+  height: 48px;
   border-radius: 30px;
   outline: none;
-  border: none;
-  font-family: "Montserrat";
+  border: 1px solid #000000;
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 450;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
-  padding: 0 65px;
+  padding: 0 25px;
+}
+@media screen and (min-width: 536px) {
+  .search-input {
+    width: 325px;
+    height: 68px;
+    font-size: 21px;
+  }
+  .search-label::after {
+    top: 21px;
+  }
 }
 
 /* SEARCH FANCY */
 .fancy-search {
-  margin-left: 30px;
   height: 40px;
-  width: 130px;
-  position: relative;
+  width: 180px;
+
+  position: absolute;
+  top: 70px;
 }
 .fancy-search input {
   height: 100%;
   width: 100%;
-  padding: 0 0 0 25px;
+  padding: 0 0 0 35px;
   font-size: 16px;
   border: none;
-  border-bottom: 2px solid #d1dcd9;
+  border-bottom: 2px solid rgba(200, 187, 202, 0.5);
   outline: none;
 }
 .fancy-search label {
@@ -71,14 +82,14 @@
   width: 20px;
 }
 .fancy-search label::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   position: absolute;
   bottom: 0;
   transform: translateX(-100%);
   transition: all 0.3s ease-in-out;
-  background-color: #0047314d;
+  background-color: #79288094;
 }
 .fancy-search input:focus + .search-underline::after {
   transform: translateX(0);
@@ -95,6 +106,8 @@
   .fancy-search {
     width: 240px;
     margin-left: 60px;
+    position: relative;
+    top: 0;
   }
   .fancy-search input {
     font-size: 28px;

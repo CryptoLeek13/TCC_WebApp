@@ -7,13 +7,13 @@ const AgePopUp = (props) => {
     <div className="modal-container">
       {!deny && (
         <div className="modal_age">
-          <h3 className="clause">Are you old enough to enter?</h3>
+          <p className="clause">Are you 21 or older?</p>
           <div className="declaration-buttons">
             <button className="agree-button" onClick={props.handleAllow}>
-              Yes, I am 21 or older.
+              Yes.
             </button>
             <button className="disagree-button" onClick={() => setDeny(true)}>
-              No, I am not 21 yet.
+              No.
             </button>
           </div>
         </div>

@@ -11,28 +11,41 @@ function ItemDetails() {
   return (
     <section className="product-details">
       <Navbar backBtn={true} />
-      <div className="product-frame">
-        <img src={require(`../../tempIMG/${state.img}`)} alt=""></img>
-        <div className="details-wrapper">
-          <p className="shop-details-name">{state.supplier}</p>
-          <p className="product-name">{state.name}</p>
-          <div className="details">
-            <p className="type">{state.type}</p>
-            <p className="thc">{state.thc}</p>
+      <div className="product-frame-wrapper">
+        <div className="product-frame">
+          <img src={require(`../../tempIMG/${state.img}`)} alt=""></img>
+          <div className="details-wrapper">
+            <p className="shop-details-name">{state.supplier}</p>
+            <p className="product-name">{state.name}</p>
+            <div className="details">
+              <p className="type">{state.type}</p>
+              <p className="thc">{state.thc}</p>
+            </div>
+            <div className="price-wrapper">
+              <p className="price">{state.price}</p>
+              <p className="quantity">{state.quantity}</p>
+            </div>
+            <button className="order">Order Now</button>
           </div>
-          <div className="price-wrapper">
-            <p className="price">{state.price}</p>
-            <p className="quantity">{state.quantity}</p>
+        </div>
+        <section className="profiles">
+          <p className="heading">Profile</p>
+          <div className="profiles-wrapper">
+            <div className="profile">Flower</div>
+            <div className="profile">Effects</div>
           </div>
-          <button className="order">Order Now</button>
-        </div>
-      </div>
-      <section className="profiles">
-        <p className="heading">Profile</p>
-        <div className="profiles-wrapper">
-          <div className="profile">Flower</div>
-          <div className="profile">Effects</div>
-        </div>
+        </section>
+        <article className="description">
+          {/* props description */}
+          <p className="heading">Description</p>
+          <p>
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui
+            blanditiis praesentium voluptatum deleniti atque corrupti quos
+            dolores et quas, At vero eos et accusamus et iusto odio dignissimos
+            ducimus qui blanditiis praesentium voluptatum deleniti atque
+            corrupti quos dolores et quas.
+          </p>
+        </article>
         <aside className="about">
           <img src={require('../../tempIMG/about.png')} alt="710labs"></img>
           <p className="heading">About the Dispo</p>
@@ -44,20 +57,7 @@ function ItemDetails() {
             to deliver the best f#!$ing product you'll ever try.
           </p>
         </aside>
-      </section>
-      <article className="description">
-        {/* props description */}
-        <p className="heading">Description</p>
-        <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui
-          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-          et quas molestias excepturi sint occaecati cupiditate non provident,
-          similique sunt in culpa qui officia deserunt mollitia animi, id est
-          laborum et dolorum fuga. Blanditiis praesentium, voluptatum deleniti
-          atque corrupti quos dolores et quas molestias excepturi sint occaecati
-          cupiditate non.
-        </p>
-      </article>
+      </div>
     </section>
   );
 }
