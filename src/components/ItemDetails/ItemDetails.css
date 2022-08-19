@@ -231,8 +231,8 @@
     gap: 11px;
   }
   .profile {
-    width: 180px;
-    height: 60px;
+    width: 140px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -240,8 +240,8 @@
     border-radius: 30px;
     font-family: "Montserrat";
     font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
+    font-weight: 400;
+    font-size: 18px;
     line-height: 27px;
     color: rgba(0, 0, 0, 0.7);
   }
@@ -262,7 +262,7 @@
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 300;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 27px;
     color: #000000;
   }
@@ -271,7 +271,7 @@
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 32px;
     color: rgba(0, 0, 0, 0.7);
   }
@@ -283,8 +283,8 @@
   .description p:last-of-type {
     font-family: "Montserrat";
     font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
+    font-weight: 300;
+    font-size: 20px;
     line-height: 27px;
     color: #3a3b3c;
   }
