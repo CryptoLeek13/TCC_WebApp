@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import SearchFancy from '../Search/SearchFancy';
 import { useDispatch } from 'react-redux';
 import BackButton from '../Buttons/BackButton/BackButton';
+import { Link } from 'react-router-dom';
 
 function Navbar({ backBtn }) {
   const local = localStorage.getItem('location');
@@ -12,7 +13,9 @@ function Navbar({ backBtn }) {
   return (
     <div className="navbar">
       <div className="wrapper">
-        <img src={require('../../tempIMG/kLogo.png')} alt="logo" />
+        <Link to="/home">
+          <img src={require('../../tempIMG/kLogo.png')} alt="logo" />
+        </Link>
         {backBtn ? <BackButton /> : null}
         <SearchFancy placeholder={location} />
       </div>
