@@ -115,15 +115,15 @@
     top: 0;
   }
   .fancy-search input {
-    height: 85%;
+    height: 70%;
     font-size: 21px;
-    margin-top: 0.5em;
+    margin-top: 0.2em;
     padding-bottom: 6px;
     padding: 0 0 0 30px;
   }
   .fancy-search label svg {
     position: absolute;
-    top: 18px;
+    top: 10px;
     height: 16px;
     width: 16px;
   }
