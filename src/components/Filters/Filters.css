@@ -18,17 +18,21 @@
   width: 50%;
 }
 .range-label {
-  font-size: 1em;
+  font-size: 0.7em;
   font-family: 'Nunito', sans-serif;
+}
+input[type='range'] {
+  width: 100%;
 }
 input[type='range']::before,
 input[type='range']::after {
   position: absolute;
   display: inline-block;
+  font-size: 13px;
 }
 input[type='range']::before {
   content: attr(min);
-  left: -15px;
+  left: -20px;
 }
 input[type='range']::after {
   content: attr(max);
@@ -44,38 +48,22 @@ input[type='range']::after {
   border-radius: 30px;
   padding-left: 10px;
 }
-.dropdown-filter ul li {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  width: 100px;
-  height: 30px;
-  color: #333;
-  font-family: 'Nunito', sans-serif;
-  border-bottom: 1px solid rgb(206, 206, 206);
-  padding: 0 0 0 20px;
-}
-.dropdown-filter ul li:hover {
-  background: #0047314d;
-  cursor: pointer;
-  color: rgb(240, 240, 240);
-  transition-duration: 0.2s;
-}
 .dropdown-filter {
   position: relative;
-}
-.dropdown-filter li:nth-child(1) {
-  height: 50px;
-  padding-top: 20px;
-}
-.dropdown-filter ul {
-  margin-left: 42px;
+  width: 100px;
+  margin-left: 20px;
 }
 
 @media screen and (min-width: 536px) {
   .filters-and-data {
     position: relative;
     top: 0px;
+  }
+  .range-label {
+    font-size: 1em;
+  }
+  .dropdown-filter {
+    width: 180px;
   }
   .distance {
     width: 130px;
