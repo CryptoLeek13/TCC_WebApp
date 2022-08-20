@@ -67,6 +67,7 @@
   font-size: 18px;
   line-height: 22px;
   color: #3a3b3c;
+  padding-bottom: 10px;
 }
 .hours-grid {
   display: grid;
@@ -97,8 +98,8 @@
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 50%;
-  width: 37px;
-  height: 37px;
+  width: 34px;
+  height: 34px;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
@@ -109,18 +110,18 @@
   color: #000000;
 }
 .call-btn img {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
 }
 .dir-btn img {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
 }
 .dir-btn {
   background: white;
   border-radius: 50%;
-  width: 37px;
-  height: 37px;
+  width: 34px;
+  height: 34px;
   font-family: "Montserrat";
   font-style: normal;
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -428,23 +429,19 @@ h2 {
   }
   .call-btn img,
   .dir-btn img {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
   }
   .call-btn,
   .dir-btn {
-    height: 47px;
-    width: 47px;
+    height: 42px;
+    width: 42px;
   }
   .contact {
     display: flex;
     gap: 4px;
     width: min-content;
     margin-top: 14px;
-  }
-  .contact img {
-    width: 28px;
-    height: 28px;
   }
 
   .inline-wrapper_heading_scrolling {

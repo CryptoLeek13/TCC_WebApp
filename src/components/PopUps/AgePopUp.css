@@ -41,7 +41,7 @@
   font-weight: 400;
   font-size: 16px;
   text-align: center;
-  color: #212121;
+  color: #212121c3;
   cursor: pointer;
 }
 .clause {
@@ -51,7 +51,7 @@
   font-size: 18px;
   line-height: 32px;
   text-align: center;
-  color: #10032585;
+  color: #212121c3;
   width: 290px;
   display: flex;
   justify-content: center;
@@ -79,9 +79,9 @@
     font-family: "Maven Pro";
     font-style: normal;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 19px;
     text-align: center;
-    color: #212121;
+
     cursor: pointer;
   }
   .clause {

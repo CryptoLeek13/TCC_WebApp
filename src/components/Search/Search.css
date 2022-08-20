@@ -40,7 +40,7 @@
   .search-input {
     width: 300px;
     height: 62px;
-    font-size: 18px;
+    font-size: 17px;
   }
   .search-label::after {
     top: 21px;

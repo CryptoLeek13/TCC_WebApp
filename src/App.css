@@ -24,12 +24,12 @@
   border-radius: 30px;
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   line-height: 30px;
   text-align: center;
   background: #f5f2f5;
-  color: #000000;
+  color: #00000096;
   cursor: pointer;
 }
 @media screen and (min-width: 536px) {
