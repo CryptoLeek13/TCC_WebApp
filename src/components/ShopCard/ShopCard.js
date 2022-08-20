@@ -17,6 +17,7 @@ function ShopCard(props) {
         <p className="shop-orders">{props.isOrder}</p>
         <div className="shop-in-pill">
           <h4>{props.info}</h4>
+          <h4>{props.delivery}</h4>
         </div>
       </div>
     </div>

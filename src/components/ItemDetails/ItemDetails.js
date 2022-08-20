@@ -4,26 +4,27 @@ import Navbar from '../Navbar/Navbar';
 import './ItemDetails.css';
 import { useLocation } from 'react-router-dom';
 
-function ItemDetails() {
-  const { state } = useLocation();
-  console.log(state); //getting props
+function ItemDetails(props) {
+  // const { state } = useLocation();
+  // console.log(state); //getting props
+  //use params to receive productID and send query to api for matching product
 
   return (
     <section className="product-details">
       <Navbar backBtn={true} />
       <div className="product-frame-wrapper">
         <div className="product-frame">
-          <img src={require(`../../tempIMG/${state.img}`)} alt=""></img>
+          <img src={require(`../../tempIMG/Rectangle.png`)} alt=""></img>
           <div className="details-wrapper">
-            <p className="shop-details-name">{state.supplier}</p>
-            <p className="product-name">{state.name}</p>
+            <p className="shop-details-name">Planet 13</p>
+            <p className="product-name">Blueberry Pie</p>
             <div className="details">
-              <p className="type">{state.type}</p>
-              <p className="thc">{state.thc}</p>
+              <p className="type">Indica</p>
+              <p className="thc">26% THC</p>
             </div>
             <div className="price-wrapper">
-              <p className="price">{state.price}</p>
-              <p className="quantity">{state.quantity}</p>
+              <p className="price">$60.00</p>
+              <p className="quantity">Per 1/8 oz</p>
             </div>
             <button className="order">Order Now</button>
           </div>

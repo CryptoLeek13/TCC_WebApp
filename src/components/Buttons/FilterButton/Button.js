@@ -7,7 +7,7 @@ function Button(props) {
   return (
     <button
       className="filter-button"
-      onClick={() => props.handleNavigate(props.details)}
+      // onClick={() => props.handleNavigate(props.details)}
     >
       {props.title}
     </button>

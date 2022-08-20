@@ -14,7 +14,7 @@
   position: absolute;
   top: 14px;
   right: 25px;
-  content: "";
+  content: '';
   height: 20px;
   width: 20px;
   background: url(../../tempIMG/search.svg);
@@ -26,7 +26,7 @@
   border-radius: 30px;
   outline: none;
   border: 1px solid #0000004a;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 450;
   font-size: 14px;
@@ -49,18 +49,15 @@
 
 /* SEARCH FANCY */
 .fancy-search {
-  height: 44px;
+  height: 34px;
   width: 180px;
-
   position: absolute;
   top: 70px;
-  margin-left: 16px;
 }
 .fancy-search input {
-  margin-top: 0.7em;
-  height: 60%;
-  width: 90%;
-  padding: 0 0 0 24px;
+  height: 100%;
+  width: 100%;
+  padding-left: 20px;
   font-size: 15px;
   border: none;
   border-bottom: 2px solid rgba(200, 187, 202, 0.5);
@@ -71,8 +68,8 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
   overflow: hidden;
+  height: 100%;
   pointer-events: none;
 }
 .magnifying {
@@ -82,16 +79,17 @@
 }
 .fancy-search label svg {
   position: absolute;
-  top: 12px;
+  top: 10px;
   height: 14px;
   width: 14px;
 }
 .fancy-search label::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
+  left: 0;
   transform: translateX(-100%);
   transition: all 0.3s ease-in-out;
   background-color: #79288094;
@@ -109,21 +107,19 @@
 
 @media screen and (min-width: 536px) {
   .fancy-search {
-    width: 240px;
-    margin-left: 40px;
+    width: 210px;
+    margin: 0 0 10px 40px;
     position: relative;
     top: 0;
   }
   .fancy-search input {
-    height: 70%;
     font-size: 21px;
-    margin-top: 0.2em;
     padding-bottom: 6px;
     padding: 0 0 0 30px;
   }
   .fancy-search label svg {
     position: absolute;
-    top: 10px;
+    top: 7px;
     height: 16px;
     width: 16px;
   }
