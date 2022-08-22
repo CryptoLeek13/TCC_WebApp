@@ -1,8 +1,8 @@
-import React from 'react';
-import Button from '../Buttons/FilterButton/Button';
-import './Filters.css';
-import ShopCard from '../ShopCard/ShopCard';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Button from "../Buttons/FilterButton/Button";
+import "./Filters.css";
+import ShopCard from "../ShopCard/ShopCard";
+import { Link } from "react-router-dom";
 
 function Filters() {
   const [range, setRange] = React.useState(250); //from here the api will be filtered by this value and will generate results to home page
@@ -14,11 +14,11 @@ function Filters() {
   const toggleDropdown = () => {
     setIsDropdownToggle((prev) => !prev);
     if (isDropdownToggle) {
-      dropdown.current.style.opacity = '1';
-      svg.current.style.transform = 'rotate(180deg)';
+      dropdown.current.style.opacity = "1";
+      svg.current.style.transform = "rotate(180deg)";
     } else {
-      dropdown.current.style.opacity = '0';
-      svg.current.style.transform = 'rotate(0deg)';
+      dropdown.current.style.opacity = "0";
+      svg.current.style.transform = "rotate(0deg)";
     }
   };
 
@@ -48,7 +48,9 @@ function Filters() {
               value={range}
               onChange={(e) => setRange(e.target.value)}
             ></input>
-            <p className="range-label">Distance {range} miles</p>
+            <p className="range-label">
+              Showing dispensaries within {range} miles.
+            </p>
           </section>
         </div>
       </section>

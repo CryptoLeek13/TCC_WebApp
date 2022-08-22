@@ -5,9 +5,15 @@
   border-bottom: 2px solid #002e2033;
   cursor: pointer;
 }
+.data .card {
+  padding: 12px 0 10px 10px;
+}
 .card img {
   height: 130px;
   width: 110px;
+}
+.data .card img {
+  height: 140px;
 }
 a {
   text-decoration: none;
@@ -20,44 +26,62 @@ a {
   justify-content: center;
 }
 .shop-name {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  padding: 0;
+  font-size: 15px;
+  padding-bottom: 4px;
   line-height: 16px;
   color: #3a3b3c;
 }
+.data .shop-name {
+  font-size: 16px;
+  padding-bottom: 6px;
+}
 .shop-location {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   font-size: 11px;
   padding-bottom: 10px;
   line-height: 15px;
 }
+.data .shop-location {
+  padding-bottom: 8px;
+}
 .shop-assignments {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
   color: #3a3b3c;
 }
+.data .shop-assignments {
+  padding-top: 8px;
+  padding-bottom: 4px;
+}
 .shop-orders {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
   padding-bottom: 10px;
   color: #3a3b3c;
 }
+.data .shop-orders {
+  padding-bottom: 2px;
+}
 .shop-in-pill h4 {
   font-size: 10px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
-  line-height: 12px;
+  line-height: 16px;
   color: #3a3b3c;
+  margin-top: 2px;
+}
+.data .shop-in-pill h4 {
+  margin-top: 2px;
 }
 @media screen and (min-width: 550px) {
   .card-shop_details {
@@ -69,6 +93,7 @@ a {
   }
   .shop-name {
     font-size: 20px;
+    padding-left: 0;
   }
   .shop-location {
     padding: 0 0 12px 0;
@@ -98,30 +123,54 @@ a {
   .card {
     padding: 20px 0 20px 20px;
   }
+  .data .card {
+    padding: 20px 0 20px 20px;
+  }
   .card img {
+    width: 290px;
+    height: 210px;
+  }
+  .data .card img {
     width: 290px;
     height: 210px;
   }
   .shop-name {
     font-size: 21px;
     padding-bottom: 10px;
-    margin-top: 5px;
+    margin-top: 14px;
+    padding-left: 0;
+  }
+  .data .shop-name {
+    padding-bottom: 10px;
+    font-size: 22px;
   }
   .shop-location {
     padding: 0 0 14px 0;
     font-size: 15px;
     line-height: 22px;
   }
+  .data .shop-location {
+    padding-bottom: 16px;
+  }
   .shop-assignments {
     font-size: 14px;
+  }
+  .data .shop-assignments {
+    padding-bottom: 8px;
   }
   .shop-orders {
     font-size: 14px;
     padding: 0 0 10px 0;
   }
+  .data .shop-orders {
+    padding-bottom: 4px;
+  }
   .shop-in-pill h4 {
     font-size: 14px;
     margin-bottom: 0;
     line-height: 24px;
+  }
+  .data .shop-in-pill {
+    margin-bottom: 10px;
   }
 }
