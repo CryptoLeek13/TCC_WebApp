@@ -14,7 +14,7 @@
   position: absolute;
   top: 14px;
   right: 25px;
-  content: "";
+  content: '';
   height: 20px;
   width: 20px;
   background: url(../../tempIMG/search.svg);
@@ -26,7 +26,7 @@
   border-radius: 30px;
   outline: none;
   border: 1px solid #0000004a;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 450;
   font-size: 14px;
@@ -57,6 +57,7 @@
 .fancy-search input {
   height: 100%;
   width: 100%;
+  padding-top: 7px;
   padding-left: 20px;
   font-size: 15px;
   border: none;
@@ -85,7 +86,7 @@
   width: 14px;
 }
 .fancy-search label::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   position: absolute;
@@ -115,7 +116,7 @@
   }
   .fancy-search input {
     font-size: 21px;
-    padding: 0 0 0 30px;
+    padding: 5px 0 0 25px;
     padding-bottom: 2px;
   }
   .fancy-search label svg {

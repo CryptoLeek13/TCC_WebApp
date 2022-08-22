@@ -20,45 +20,43 @@ a {
   justify-content: center;
 }
 .shop-name {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
+  padding: 0;
   line-height: 16px;
-  margin-top: 10px;
-  padding: 0 0 6px 0;
   color: #3a3b3c;
 }
 .shop-location {
-  font-family: "Montserrat";
-  padding: 0 0 8px 0;
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-size: 11px;
+  padding-bottom: 10px;
   line-height: 15px;
 }
 .shop-assignments {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
   color: #3a3b3c;
 }
 .shop-orders {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
-  line-height: 15px;
-  padding: 0 0 6px 0;
+  padding-bottom: 10px;
   color: #3a3b3c;
 }
 .shop-in-pill h4 {
   font-size: 10px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 12px;
   color: #3a3b3c;
 }
 @media screen and (min-width: 550px) {

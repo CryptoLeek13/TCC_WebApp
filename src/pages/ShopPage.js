@@ -1,9 +1,9 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import Button from "../components/Buttons/FilterButton/Button";
-import Navbar from "../components/Navbar/Navbar";
-import ShopCard from "../components/ShopCard/ShopCard";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import Button from '../components/Buttons/FilterButton/Button';
+import Navbar from '../components/Navbar/Navbar';
+import ShopCard from '../components/ShopCard/ShopCard';
 
 function ShopPage() {
   // const { state } = useLocation();
@@ -20,40 +20,53 @@ function ShopPage() {
 
   const handleScrollLeft = () => {
     carousel.current.scrollLeft -= 170;
-    carousel.current.style.transitionDuration = "0.3s";
+    carousel.current.style.transitionDuration = '0.3s';
   };
   const handleScrollRight = () => {
     carousel.current.scrollLeft += 170;
-    carousel.current.style.transitionDuration = "0.3s";
+    carousel.current.style.transitionDuration = '0.3s';
   };
   const [isProductListOn, setIsProductListOn] = React.useState(false);
   const [isSortByOn, setIsSortByOn] = React.useState(false);
 
   const [filtersList, setFiltersList] = React.useState([]);
 
+  const [isFiltersApplied, setIsFiltersApplied] = React.useState(false);
+
   const flowers = React.useRef(null);
   const productsList = React.useRef(null);
   const sortByList = React.useRef(null);
 
   const toggleProductList = () => {
-    if (isProductListOn) {
-      productsList.current.style.display = "none";
-    } else {
-      productsList.current.style.display = "flex";
-    }
     setIsProductListOn((prev) => !prev);
+    if (isProductListOn) {
+      productsList.current.style.opacity = '0';
+      productsList.current.style.pointerEvents = 'none';
+    } else {
+      productsList.current.style.opacity = '1';
+      productsList.current.style.pointerEvents = 'all';
+      sortByList.current.style.opacity = '0';
+      sortByList.current.style.pointerEvents = 'none';
+      setIsSortByOn(false);
+    }
   };
   const toggleSortByList = () => {
-    if (isSortByOn) {
-      sortByList.current.style.display = "none";
-    } else {
-      sortByList.current.style.display = "flex";
-    }
     setIsSortByOn((prev) => !prev);
+    if (isSortByOn) {
+      sortByList.current.style.opacity = '0';
+      sortByList.current.style.pointerEvents = 'none';
+    } else {
+      sortByList.current.style.opacity = '1';
+      sortByList.current.style.pointerEvents = 'all';
+      productsList.current.style.opacity = '0';
+      productsList.current.style.pointerEvents = 'none';
+      setIsProductListOn(false);
+    }
   };
   const addFilterToList = (e) => {
     let currentTarget = e.target;
-    currentTarget.classList.toggle("toggle-style");
+    setIsFiltersApplied(false);
+    currentTarget.classList.toggle('toggle-style');
     let temp = filtersList.filter((item) => item === e.target.dataset.filter);
     if (temp < 1) {
       return setFiltersList([...filtersList, e.target.dataset.filter]);
@@ -64,7 +77,35 @@ function ShopPage() {
       );
     }
   };
+  const selectedFilter = document.querySelectorAll('.products-list-item');
+  const selectedFilter2 = document.querySelectorAll('.sort_by-list-item');
+  const applyFilters = () => {
+    setIsSortByOn(false);
+    setIsProductListOn(false);
+    sortByList.current.style.opacity = '0';
+    sortByList.current.style.pointerEvents = 'none';
+    productsList.current.style.opacity = '0';
+    productsList.current.style.pointerEvents = 'none';
 
+    setIsFiltersApplied(true);
+  };
+  const removeFilter = (e) => {
+    if (filtersList.filter((item) => item === e.target.dataset.filter)) {
+      setFiltersList((item) =>
+        item.filter((element) => element !== e.target.dataset.filter)
+      );
+    }
+    selectedFilter.forEach((element) => {
+      if (element.dataset.filter === e.target.dataset.filter) {
+        element.classList.remove('toggle-style');
+      }
+    });
+    selectedFilter2.forEach((element) => {
+      if (element.dataset.filter === e.target.dataset.filter) {
+        element.classList.remove('toggle-style');
+      }
+    });
+  };
   return (
     <div>
       <Navbar backBtn={true} />
@@ -72,7 +113,7 @@ function ShopPage() {
         <section className="selected-shop">
           <div className="selected-shop-card">
             <img
-              src={require("../tempIMG/shopImgBlackBorder.png")}
+              src={require('../tempIMG/shopImgBlackBorder.png')}
               alt="shop"
             ></img>
             <div className="card-shop_details">
@@ -87,11 +128,11 @@ function ShopPage() {
               </div>
               <div className="contact">
                 <a href="tel:999999999" className="call-btn">
-                  <img src={require("../tempIMG/call.png")} alt="call"></img>
+                  <img src={require('../tempIMG/call.png')} alt="call"></img>
                 </a>
                 <a href="" className="dir-btn">
                   <img
-                    src={require("../tempIMG/navi.png")}
+                    src={require('../tempIMG/navi.png')}
                     alt="direction"
                   ></img>
                 </a>
@@ -180,6 +221,9 @@ function ShopPage() {
             >
               Misc.
             </li>
+            <button onClick={applyFilters} className="apply-button">
+              Apply
+            </button>
           </aside>
           <aside className="sort_by-list" ref={sortByList}>
             <li
@@ -210,7 +254,33 @@ function ShopPage() {
             >
               Hybrid
             </li>
+            <button onClick={applyFilters} className="apply-button">
+              Apply
+            </button>
           </aside>
+          {filtersList.length > 0 && isFiltersApplied && (
+            <section className="active-filters">
+              Filters:
+              {filtersList.map((filter) => {
+                return (
+                  <span
+                    className="active-filter-holder"
+                    key={filter}
+                    data-filter={filter}
+                    onClick={removeFilter}
+                  >
+                    {filter}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 320 512"
+                    >
+                      <path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                    </svg>
+                  </span>
+                );
+              })}
+            </section>
+          )}
           <section className="flowers" ref={flowers}>
             <h2>All Products</h2>
             {/* items filtered or not will be displayed here */}
@@ -236,7 +306,7 @@ function ShopPage() {
               {/* Also here I will map through the products in API and display them here  */}
               <Link to={`/shop${shoppage}/1`}>
                 <div className="item">
-                  <img src={require("../tempIMG/Rectangle.png")} />
+                  <img src={require('../tempIMG/Rectangle.png')} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -263,7 +333,7 @@ function ShopPage() {
 
               <Link to={`/shop${shoppage}/2`}>
                 <div className="item">
-                  <img src={require("../tempIMG/Rectangle.png")} />
+                  <img src={require('../tempIMG/Rectangle.png')} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -289,7 +359,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/3`}>
                 <div className="item">
-                  <img src={require("../tempIMG/Rectangle.png")} />
+                  <img src={require('../tempIMG/Rectangle.png')} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -315,7 +385,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/4`}>
                 <div className="item">
-                  <img src={require("../tempIMG/Rectangle.png")} />
+                  <img src={require('../tempIMG/Rectangle.png')} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -341,7 +411,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/5`}>
                 <div className="item">
-                  <img src={require("../tempIMG/Rectangle.png")} />
+                  <img src={require('../tempIMG/Rectangle.png')} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -367,7 +437,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/6`}>
                 <div className="item">
-                  <img src={require("../tempIMG/Rectangle.png")} />
+                  <img src={require('../tempIMG/Rectangle.png')} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">

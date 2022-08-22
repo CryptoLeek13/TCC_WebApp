@@ -6,6 +6,20 @@ import { Link } from 'react-router-dom';
 
 function Filters() {
   const [range, setRange] = React.useState(10); //from here the api will be filtered by this value and will generate results to home page
+  const [isDropdownToggle, setIsDropdownToggle] = React.useState(true);
+
+  const dropdown = React.useRef(null);
+
+  const toggleDropdown = () => {
+    setIsDropdownToggle((prev) => !prev);
+    if (isDropdownToggle) {
+      dropdown.current.style.transform = 'translateY(0)';
+      dropdown.current.style.opacity = '1';
+    } else {
+      dropdown.current.style.transform = 'translateY(-70px)';
+      dropdown.current.style.opacity = '0';
+    }
+  };
 
   return (
     <section className="filters-and-data">
@@ -15,15 +29,20 @@ function Filters() {
           <Button title="Delivery" />
         </div>
         <div className="dropdown-filter">
-          <p className="range-label">Distance {range} miles</p>
-          <input
-            type="range"
-            min="10"
-            max="250"
-            value={range}
-            onChange={(e) => setRange(e.target.value)}
-          ></input>
+          <div className="distance-button" onClick={toggleDropdown}>
+            Distance
+          </div>
         </div>
+      </section>
+      <section className="distance-dropdown" ref={dropdown}>
+        <input
+          type="range"
+          min="10"
+          max="250"
+          value={range}
+          onChange={(e) => setRange(e.target.value)}
+        ></input>
+        <p className="range-label">Distance {range} miles</p>
       </section>
       <section className="data">
         {/* here I will map throught the API and if filter exists result will be filterd by the filter */}
