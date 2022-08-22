@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import Button from '../components/Buttons/FilterButton/Button';
-import Navbar from '../components/Navbar/Navbar';
-import ShopCard from '../components/ShopCard/ShopCard';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import Button from "../components/Buttons/FilterButton/Button";
+import Navbar from "../components/Navbar/Navbar";
+import ShopCard from "../components/ShopCard/ShopCard";
 
 function ShopPage() {
   // const { state } = useLocation();
@@ -20,11 +20,11 @@ function ShopPage() {
 
   const handleScrollLeft = () => {
     carousel.current.scrollLeft -= 170;
-    carousel.current.style.transitionDuration = '0.3s';
+    carousel.current.style.transitionDuration = "0.3s";
   };
   const handleScrollRight = () => {
     carousel.current.scrollLeft += 170;
-    carousel.current.style.transitionDuration = '0.3s';
+    carousel.current.style.transitionDuration = "0.3s";
   };
   const [isProductListOn, setIsProductListOn] = React.useState(false);
   const [isSortByOn, setIsSortByOn] = React.useState(false);
@@ -37,23 +37,23 @@ function ShopPage() {
 
   const toggleProductList = () => {
     if (isProductListOn) {
-      productsList.current.style.display = 'none';
+      productsList.current.style.display = "none";
     } else {
-      productsList.current.style.display = 'flex';
+      productsList.current.style.display = "flex";
     }
     setIsProductListOn((prev) => !prev);
   };
   const toggleSortByList = () => {
     if (isSortByOn) {
-      sortByList.current.style.display = 'none';
+      sortByList.current.style.display = "none";
     } else {
-      sortByList.current.style.display = 'flex';
+      sortByList.current.style.display = "flex";
     }
     setIsSortByOn((prev) => !prev);
   };
   const addFilterToList = (e) => {
     let currentTarget = e.target;
-    currentTarget.classList.toggle('toggle-style');
+    currentTarget.classList.toggle("toggle-style");
     let temp = filtersList.filter((item) => item === e.target.dataset.filter);
     if (temp < 1) {
       return setFiltersList([...filtersList, e.target.dataset.filter]);
@@ -72,7 +72,7 @@ function ShopPage() {
         <section className="selected-shop">
           <div className="selected-shop-card">
             <img
-              src={require('../tempIMG/shopImgBlackBorder.png')}
+              src={require("../tempIMG/shopImgBlackBorder.png")}
               alt="shop"
             ></img>
             <div className="card-shop_details">
@@ -87,11 +87,11 @@ function ShopPage() {
               </div>
               <div className="contact">
                 <a href="tel:999999999" className="call-btn">
-                  <img src={require('../tempIMG/call.png')} alt="call"></img>
+                  <img src={require("../tempIMG/call.png")} alt="call"></img>
                 </a>
                 <a href="" className="dir-btn">
                   <img
-                    src={require('../tempIMG/navi.png')}
+                    src={require("../tempIMG/navi.png")}
                     alt="direction"
                   ></img>
                 </a>
@@ -236,7 +236,7 @@ function ShopPage() {
               {/* Also here I will map through the products in API and display them here  */}
               <Link to={`/shop${shoppage}/1`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -263,7 +263,7 @@ function ShopPage() {
 
               <Link to={`/shop${shoppage}/2`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -289,7 +289,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/3`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -315,7 +315,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/4`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -341,7 +341,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/5`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -367,7 +367,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/6`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
