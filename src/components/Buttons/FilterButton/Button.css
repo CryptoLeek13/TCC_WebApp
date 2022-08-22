@@ -1,24 +1,29 @@
 .filter-button {
-  background-color: #f6f6f6;
-  border-radius: 30px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px #00000040;
-  width: 80px;
-  height: 30px;
-  font-family: "Nunito", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  font-style: normal;
+  /* background: #edeaee; */
+  /* border-radius: 30px; */
+  width: 110px;
+  height: 34px;
+  font-family: 'Montserrat';
+  /* font-style: normal;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: center;
-  color: #000000c6;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000; */
+  font-size: 13px;
+  background: #faf9fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 @media screen and (min-width: 500px) {
   .filter-button {
     width: 110px;
     height: 36px;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 27px;
   }
 }

@@ -36,16 +36,21 @@ function ShopPage() {
   const flowers = React.useRef(null);
   const productsList = React.useRef(null);
   const sortByList = React.useRef(null);
+  const svgProduct = React.useRef(null);
+  const svgSort = React.useRef(null);
 
   const toggleProductList = () => {
     setIsProductListOn((prev) => !prev);
     if (isProductListOn) {
       productsList.current.style.opacity = '0';
       productsList.current.style.pointerEvents = 'none';
+      svgProduct.current.style.transform = 'rotate(0deg)';
     } else {
       productsList.current.style.opacity = '1';
+      svgProduct.current.style.transform = 'rotate(180deg)';
       productsList.current.style.pointerEvents = 'all';
       sortByList.current.style.opacity = '0';
+      svgSort.current.style.transform = 'rotate(0deg)';
       sortByList.current.style.pointerEvents = 'none';
       setIsSortByOn(false);
     }
@@ -55,10 +60,13 @@ function ShopPage() {
     if (isSortByOn) {
       sortByList.current.style.opacity = '0';
       sortByList.current.style.pointerEvents = 'none';
+      svgSort.current.style.transform = 'rotate(0deg)';
     } else {
       sortByList.current.style.opacity = '1';
+      svgSort.current.style.transform = 'rotate(180deg)';
       sortByList.current.style.pointerEvents = 'all';
       productsList.current.style.opacity = '0';
+      svgProduct.current.style.transform = 'rotate(0deg)';
       productsList.current.style.pointerEvents = 'none';
       setIsProductListOn(false);
     }
@@ -87,8 +95,18 @@ function ShopPage() {
     productsList.current.style.opacity = '0';
     productsList.current.style.pointerEvents = 'none';
 
-    setIsFiltersApplied(true);
+    // setIsFiltersApplied(true);
   };
+  const clearFilters = () => {
+    setFiltersList([]);
+    selectedFilter.forEach((element) => {
+      element.classList.remove('toggle-style');
+    });
+    selectedFilter2.forEach((element) => {
+      element.classList.remove('toggle-style');
+    });
+  };
+
   const removeFilter = (e) => {
     if (filtersList.filter((item) => item === e.target.dataset.filter)) {
       setFiltersList((item) =>
@@ -170,7 +188,11 @@ function ShopPage() {
             <button className="product" onClick={toggleProductList}>
               <p>
                 Products
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <svg
+                  ref={svgProduct}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
                   <path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z" />
                 </svg>
               </p>
@@ -179,7 +201,11 @@ function ShopPage() {
             <button className="sort-by" onClick={toggleSortByList}>
               <p>
                 Sort By
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <svg
+                  ref={svgSort}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
                   <path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z" />
                 </svg>
               </p>
@@ -188,82 +214,81 @@ function ShopPage() {
           <aside className="products-list" ref={productsList}>
             <li
               className="products-list-item"
-              data-filter="flower"
+              data-filter="Flower"
               onClick={addFilterToList}
             >
               Flower
             </li>
             <li
               className="products-list-item"
-              data-filter="edibles"
+              data-filter="Edibles"
               onClick={addFilterToList}
             >
               Edibles
             </li>
             <li
               className="products-list-item"
-              data-filter="concentrates"
+              data-filter="Concentrates"
               onClick={addFilterToList}
             >
               Concentrates
             </li>
             <li
               className="products-list-item"
-              data-filter="cartridges"
+              data-filter="Cartridges"
               onClick={addFilterToList}
             >
               Cartridges
             </li>
             <li
               className="products-list-item"
-              data-filter="misc"
+              data-filter="Misc"
               onClick={addFilterToList}
             >
               Misc.
             </li>
-            <button onClick={applyFilters} className="apply-button">
+            <button onClick={applyFilters} className="operation-buttons">
               Apply
+            </button>
+            <button onClick={clearFilters} className="operation-buttons">
+              Clear
             </button>
           </aside>
           <aside className="sort_by-list" ref={sortByList}>
             <li
               className="sort_by-list-item"
-              data-filter="recommended"
-              onClick={addFilterToList}
-            >
-              Recommended
-            </li>
-            <li
-              className="sort_by-list-item"
-              data-filter="sativa"
+              data-filter="Sativa"
               onClick={addFilterToList}
             >
               Sativa
             </li>
             <li
               className="sort_by-list-item"
-              data-filter="indica"
+              data-filter="Indica"
               onClick={addFilterToList}
             >
               Indica
             </li>
             <li
               className="sort_by-list-item"
-              data-filter="hybrid"
+              data-filter="Hybrid"
               onClick={addFilterToList}
             >
               Hybrid
             </li>
-            <button onClick={applyFilters} className="apply-button">
+            <button onClick={applyFilters} className="operation-buttons">
               Apply
             </button>
+            <button onClick={clearFilters} className="operation-buttons">
+              Clear
+            </button>
           </aside>
-          {filtersList.length > 0 && isFiltersApplied && (
+          {filtersList.length > 0 && (
             <section className="active-filters">
               Filters:
               {filtersList.map((filter) => {
                 return (
-                  <span
+                  <p
                     className="active-filter-holder"
                     key={filter}
                     data-filter={filter}
@@ -276,7 +301,7 @@ function ShopPage() {
                     >
                       <path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
                     </svg>
-                  </span>
+                  </p>
                 );
               })}
             </section>

@@ -21,7 +21,7 @@
 }
 .wrapper {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 @media screen and (min-width: 536px) {
   .navbar {
@@ -178,6 +178,7 @@
   list-style-type: none;
   font-size: 14px;
   color: #792880;
+  height: 36px;
 }
 .sort_by-list {
   display: flex;
@@ -212,10 +213,11 @@
 .active-filters::-webkit-scrollbar {
   display: none;
 }
-.apply-button {
+.operation-buttons {
   border: 2px solid #79288094;
   background-color: #79288094;
   border-radius: 30px;
+  height: 36px;
   color: white;
   font-family: 'Montserrat';
   font-weight: bold;
@@ -226,7 +228,6 @@
   border-radius: 30px;
   border: 2px solid #79288094;
   background-color: #79288094;
-  text-transform: uppercase;
   font-size: 10px;
   display: flex;
   padding: 5px 10px;
@@ -234,6 +235,9 @@
   justify-content: center;
   font-family: 'Montserrat';
   cursor: pointer;
+}
+.active-filter-holder::first-letter {
+  text-transform: uppercase;
 }
 .active-filter-holder svg {
   width: 12px;
@@ -245,6 +249,7 @@
   width: max-content;
   padding: 6px 16px;
   cursor: pointer;
+  height: 36px;
   font-family: 'Montserrat';
   border-radius: 30px;
   border: 2px solid #79288094;
@@ -278,6 +283,10 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+}
+.product svg,
+.sort-by svg {
+  transition-duration: 0.3s;
 }
 .product p,
 .sort-by p {
