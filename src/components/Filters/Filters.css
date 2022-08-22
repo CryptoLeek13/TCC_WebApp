@@ -63,7 +63,7 @@
   padding: 20px;
   left: -180px;
   opacity: 0;
-  transition: transform 0.4s, opacity 0.1s;
+  transition: opacity 0.3s;
   display: flex;
   align-items: center;
   flex-direction: column;

@@ -94,6 +94,8 @@ function ShopPage() {
     sortByList.current.style.pointerEvents = 'none';
     productsList.current.style.opacity = '0';
     productsList.current.style.pointerEvents = 'none';
+    svgProduct.current.style.transform = 'rotate(0deg)';
+    svgSort.current.style.transform = 'rotate(0deg)';
 
     // setIsFiltersApplied(true);
   };
@@ -251,7 +253,7 @@ function ShopPage() {
               Apply
             </button>
             <button onClick={clearFilters} className="operation-buttons">
-              Clear
+              Clear All
             </button>
           </aside>
           <aside className="sort_by-list" ref={sortByList}>
@@ -280,7 +282,7 @@ function ShopPage() {
               Apply
             </button>
             <button onClick={clearFilters} className="operation-buttons">
-              Clear
+              Clear All
             </button>
           </aside>
           {filtersList.length > 0 && (

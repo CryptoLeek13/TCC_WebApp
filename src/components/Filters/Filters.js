@@ -14,11 +14,9 @@ function Filters() {
   const toggleDropdown = () => {
     setIsDropdownToggle((prev) => !prev);
     if (isDropdownToggle) {
-      dropdown.current.style.transform = 'translateY(0)';
       dropdown.current.style.opacity = '1';
       svg.current.style.transform = 'rotate(180deg)';
     } else {
-      dropdown.current.style.transform = 'translateY(-70px)';
       dropdown.current.style.opacity = '0';
       svg.current.style.transform = 'rotate(0deg)';
     }
