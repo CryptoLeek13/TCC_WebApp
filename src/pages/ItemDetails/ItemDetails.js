@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../Buttons/FilterButton/Button';
-import Navbar from '../Navbar/Navbar';
+import Button from '../../components/Buttons/FilterButton/Button';
+import Navbar from '../../components/Navbar/Navbar';
 import './ItemDetails.css';
 import { useLocation } from 'react-router-dom';
 

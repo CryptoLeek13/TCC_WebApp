@@ -16,24 +16,33 @@ function ShopPage() {
   //here I will send query to api with the ID of clicked shop (ID received through useParams) to get all data
   const { shoppage } = useParams();
   // console.log(shoppage);
-  const carousel = React.useRef(null);
 
-  const handleScrollLeft = () => {
-    carousel.current.scrollLeft -= 170;
-    carousel.current.style.transitionDuration = '0.3s';
+  const scrollingButtons = document.querySelectorAll('.scrolling');
+  const carouselWrapper = document.querySelector('.items-wrapper');
+
+  const handleScrollLeft = (e) => {
+    scrollingButtons.forEach((scroll) => {
+      let leftButton = scroll.children[1];
+      if (leftButton === e.target) {
+        let carousel = scroll.parentElement.parentElement.children[1];
+        carousel.scrollLeft -= 170;
+      }
+    });
   };
-  const handleScrollRight = () => {
-    carousel.current.scrollLeft += 170;
-    carousel.current.style.transitionDuration = '0.3s';
+  const handleScrollRight = (e) => {
+    scrollingButtons.forEach((scroll) => {
+      let rightButton = scroll.children[2];
+      if (rightButton === e.target) {
+        let carousel = scroll.parentElement.parentElement.children[1];
+        carousel.scrollLeft += 170;
+      }
+    });
   };
   const [isProductListOn, setIsProductListOn] = React.useState(false);
   const [isSortByOn, setIsSortByOn] = React.useState(false);
 
   const [filtersList, setFiltersList] = React.useState([]);
 
-  const [isFiltersApplied, setIsFiltersApplied] = React.useState(false);
-
-  const flowers = React.useRef(null);
   const productsList = React.useRef(null);
   const sortByList = React.useRef(null);
   const svgProduct = React.useRef(null);
@@ -73,7 +82,6 @@ function ShopPage() {
   };
   const addFilterToList = (e) => {
     let currentTarget = e.target;
-    setIsFiltersApplied(false);
     currentTarget.classList.toggle('toggle-style');
     let temp = filtersList.filter((item) => item === e.target.dataset.filter);
     if (temp < 1) {
@@ -87,6 +95,8 @@ function ShopPage() {
   };
   const selectedFilter = document.querySelectorAll('.products-list-item');
   const selectedFilter2 = document.querySelectorAll('.sort_by-list-item');
+  const flowerSections = document.querySelectorAll('.flowers');
+
   const applyFilters = () => {
     setIsSortByOn(false);
     setIsProductListOn(false);
@@ -97,8 +107,17 @@ function ShopPage() {
     svgProduct.current.style.transform = 'rotate(0deg)';
     svgSort.current.style.transform = 'rotate(0deg)';
 
-    // setIsFiltersApplied(true);
+    flowerSections.forEach((section) => {
+      if (filtersList.length > 0) {
+        if (filtersList.includes(section.dataset.products)) {
+          section.style.display = 'block';
+        } else section.style.display = 'none';
+      } else {
+        section.style.display = 'block';
+      }
+    });
   };
+
   const clearFilters = () => {
     setFiltersList([]);
     selectedFilter.forEach((element) => {
@@ -107,14 +126,26 @@ function ShopPage() {
     selectedFilter2.forEach((element) => {
       element.classList.remove('toggle-style');
     });
+    flowerSections.forEach((section) => {
+      section.style.display = 'block';
+    });
   };
-
+  flowerSections.forEach((section) => {
+    if (filtersList.length > 0) {
+      if (filtersList.includes(section.dataset.products)) {
+        section.style.display = 'block';
+      } else section.style.display = 'none';
+    } else {
+      section.style.display = 'block';
+    }
+  });
   const removeFilter = (e) => {
     if (filtersList.filter((item) => item === e.target.dataset.filter)) {
       setFiltersList((item) =>
         item.filter((element) => element !== e.target.dataset.filter)
       );
     }
+
     selectedFilter.forEach((element) => {
       if (element.dataset.filter === e.target.dataset.filter) {
         element.classList.remove('toggle-style');
@@ -126,6 +157,7 @@ function ShopPage() {
       }
     });
   };
+
   return (
     <div>
       <Navbar backBtn={true} />
@@ -308,27 +340,843 @@ function ShopPage() {
               })}
             </section>
           )}
-          <section className="flowers" ref={flowers}>
-            <h2>All Products</h2>
+          <h2 className="products-heading">All Products</h2>
+          <section className="flowers" data-products="Flower">
             {/* items filtered or not will be displayed here */}
             <div className="inline-wrapper_heading_scrolling">
               <h3>Flower</h3>
               <div className="scrolling">
                 <p className="more">More</p>
-                <button className="left" onClick={handleScrollLeft}>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
-                    <path d="M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l137.4 137.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z" />
-                  </svg>
-                </button>
-                <button className="right" onClick={handleScrollRight}>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
-                    <path d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z" />
-                  </svg>
-                </button>
+                <img
+                  src={require('../tempIMG/left.png')}
+                  className="left"
+                  onClick={handleScrollLeft}
+                ></img>
+                <img
+                  src={require('../tempIMG/right.png')}
+                  className="right"
+                  onClick={handleScrollRight}
+                ></img>
               </div>
             </div>
 
-            <div className="items-wrapper" ref={carousel}>
+            <div className="items-wrapper">
+              {/* This whole products datas will be received through API and all data will be send through props to detail page so it don't have to send another query to api*/}
+              {/* Also here I will map through the products in API and display them here  */}
+              <Link to={`/shop${shoppage}/1`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+
+              <Link to={`/shop${shoppage}/2`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/3`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/4`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/5`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/6`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              {/* <div className="item">
+                <img src={require('../tempIMG/Rectangle.png')} />
+                <p className="item-title">
+                  Hybrid Flower{/*Product data from api etc.
+                </p>
+                <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                <p className="item-thc">22.9%</p>
+                <Button
+                  title="Details"
+                  handleNavigate={navigateToDetails}
+                  details={{
+                    img: 'Rectangle.png',
+                    id: 6,
+                    flower: 'Hybrid Flower',
+                    supplier: 'Planet 13',
+                    price: '$60.00',
+                    quantity: 'Per 1/8 oz',
+                    type: 'Indica',
+                    thc: '26% THC',
+                    name: 'Blueberry Pie'
+                  }}
+                />
+              </div> */}
+            </div>
+          </section>
+          <section className="flowers" data-products="Edibles">
+            {/* items filtered or not will be displayed here */}
+            <div className="inline-wrapper_heading_scrolling">
+              <h3>Edibles</h3>
+              <div className="scrolling">
+                <p className="more">More</p>
+                <img
+                  src={require('../tempIMG/left.png')}
+                  className="left"
+                  onClick={handleScrollLeft}
+                ></img>
+                <img
+                  src={require('../tempIMG/right.png')}
+                  className="right"
+                  onClick={handleScrollRight}
+                ></img>
+              </div>
+            </div>
+
+            <div className="items-wrapper">
+              {/* This whole products datas will be received through API and all data will be send through props to detail page so it don't have to send another query to api*/}
+              {/* Also here I will map through the products in API and display them here  */}
+              <Link to={`/shop${shoppage}/1`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+
+              <Link to={`/shop${shoppage}/2`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/3`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/4`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/5`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/6`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              {/* <div className="item">
+                <img src={require('../tempIMG/Rectangle.png')} />
+                <p className="item-title">
+                  Hybrid Flower{/*Product data from api etc.
+                </p>
+                <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                <p className="item-thc">22.9%</p>
+                <Button
+                  title="Details"
+                  handleNavigate={navigateToDetails}
+                  details={{
+                    img: 'Rectangle.png',
+                    id: 6,
+                    flower: 'Hybrid Flower',
+                    supplier: 'Planet 13',
+                    price: '$60.00',
+                    quantity: 'Per 1/8 oz',
+                    type: 'Indica',
+                    thc: '26% THC',
+                    name: 'Blueberry Pie'
+                  }}
+                />
+              </div> */}
+            </div>
+          </section>
+          <section className="flowers" data-products="Concentrates">
+            {/* items filtered or not will be displayed here */}
+            <div className="inline-wrapper_heading_scrolling">
+              <h3>Concentrates</h3>
+              <div className="scrolling">
+                <p className="more">More</p>
+                <img
+                  src={require('../tempIMG/left.png')}
+                  className="left"
+                  onClick={handleScrollLeft}
+                ></img>
+                <img
+                  src={require('../tempIMG/right.png')}
+                  className="right"
+                  onClick={handleScrollRight}
+                ></img>
+              </div>
+            </div>
+
+            <div className="items-wrapper">
+              {/* This whole products datas will be received through API and all data will be send through props to detail page so it don't have to send another query to api*/}
+              {/* Also here I will map through the products in API and display them here  */}
+              <Link to={`/shop${shoppage}/1`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+
+              <Link to={`/shop${shoppage}/2`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/3`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/4`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/5`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/6`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              {/* <div className="item">
+                <img src={require('../tempIMG/Rectangle.png')} />
+                <p className="item-title">
+                  Hybrid Flower{/*Product data from api etc.
+                </p>
+                <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                <p className="item-thc">22.9%</p>
+                <Button
+                  title="Details"
+                  handleNavigate={navigateToDetails}
+                  details={{
+                    img: 'Rectangle.png',
+                    id: 6,
+                    flower: 'Hybrid Flower',
+                    supplier: 'Planet 13',
+                    price: '$60.00',
+                    quantity: 'Per 1/8 oz',
+                    type: 'Indica',
+                    thc: '26% THC',
+                    name: 'Blueberry Pie'
+                  }}
+                />
+              </div> */}
+            </div>
+          </section>
+          <section className="flowers" data-products="Cartridges">
+            {/* items filtered or not will be displayed here */}
+            <div className="inline-wrapper_heading_scrolling">
+              <h3>Cartridges</h3>
+              <div className="scrolling">
+                <p className="more">More</p>
+                <img
+                  src={require('../tempIMG/left.png')}
+                  className="left"
+                  onClick={handleScrollLeft}
+                ></img>
+                <img
+                  src={require('../tempIMG/right.png')}
+                  className="right"
+                  onClick={handleScrollRight}
+                ></img>
+              </div>
+            </div>
+
+            <div className="items-wrapper">
+              {/* This whole products datas will be received through API and all data will be send through props to detail page so it don't have to send another query to api*/}
+              {/* Also here I will map through the products in API and display them here  */}
+              <Link to={`/shop${shoppage}/1`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+
+              <Link to={`/shop${shoppage}/2`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/3`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/4`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/5`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              <Link to={`/shop${shoppage}/6`}>
+                <div className="item">
+                  <img src={require('../tempIMG/Rectangle.png')} />
+
+                  <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                  <p className="item-title">
+                    Hybrid Flower{/*Product data from api etc.*/}
+                  </p>
+                  <p className="item-thc">22.9%</p>
+                  <Button
+                    title="Details"
+                    // handleNavigate={navigateToDetails}
+                    // details={{
+                    //   img: 'Rectangle.png',
+                    //   id: 1,
+                    //   flower: 'Hybrid Flower',
+                    //   supplier: 'Planet 13',
+                    //   price: '$60.00',
+                    //   quantity: 'Per 1/8 oz',
+                    //   type: 'Indica',
+                    //   thc: '26% THC',
+                    //   name: 'Blueberry Pie'
+                    // }}
+                  />
+                </div>
+              </Link>
+              {/* <div className="item">
+                <img src={require('../tempIMG/Rectangle.png')} />
+                <p className="item-title">
+                  Hybrid Flower{/*Product data from api etc.
+                </p>
+                <p className="item-taste">Lava Cake by Sweet Dirt</p>
+                <p className="item-thc">22.9%</p>
+                <Button
+                  title="Details"
+                  handleNavigate={navigateToDetails}
+                  details={{
+                    img: 'Rectangle.png',
+                    id: 6,
+                    flower: 'Hybrid Flower',
+                    supplier: 'Planet 13',
+                    price: '$60.00',
+                    quantity: 'Per 1/8 oz',
+                    type: 'Indica',
+                    thc: '26% THC',
+                    name: 'Blueberry Pie'
+                  }}
+                />
+              </div> */}
+            </div>
+          </section>
+          <section className="flowers" data-products="Misc">
+            {/* items filtered or not will be displayed here */}
+            <div className="inline-wrapper_heading_scrolling">
+              <h3>Misc.</h3>
+              <div className="scrolling">
+                <p className="more">More</p>
+                <img
+                  src={require('../tempIMG/left.png')}
+                  className="left"
+                  onClick={handleScrollLeft}
+                ></img>
+                <img
+                  src={require('../tempIMG/right.png')}
+                  className="right"
+                  onClick={handleScrollRight}
+                ></img>
+              </div>
+            </div>
+
+            <div className="items-wrapper">
               {/* This whole products datas will be received through API and all data will be send through props to detail page so it don't have to send another query to api*/}
               {/* Also here I will map through the products in API and display them here  */}
               <Link to={`/shop${shoppage}/1`}>

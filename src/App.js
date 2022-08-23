@@ -1,12 +1,10 @@
 import './App.css';
-import Search from './components/Search/Search';
-import AgePopUp from './components/PopUps/AgePopUp';
 import React from 'react';
 import { Routes, Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import Home from './pages/Home';
 import Authorisation from './components/Authorisation';
 import ShopPage from './pages/ShopPage';
-import ItemDetails from './components/ItemDetails/ItemDetails';
+import ItemDetails from './pages/ItemDetails/ItemDetails';
 
 function App() {
   return (
