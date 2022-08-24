@@ -54,7 +54,7 @@
 }
 .selected-shop-card {
   display: flex;
-  padding: 10px 0 10px 0;
+  padding: 10px 0 6px 0;
   border-bottom: none;
 }
 .hours-of-operation {
@@ -62,11 +62,11 @@
 }
 .selected-shop-card img {
   width: 100px;
-  height: 130px;
+  height: 140px;
 }
 
 .hours-of-operation h3 {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
@@ -80,7 +80,7 @@
   grid-template-columns: 120px 130px;
 }
 .days {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -88,7 +88,7 @@
   color: #3a3b3c;
 }
 .hours {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -103,7 +103,7 @@
   display: flex;
   gap: 4px;
   width: max-content;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 .call-btn {
   background: white;
@@ -111,7 +111,7 @@
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -133,7 +133,7 @@
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   border: 1px solid rgba(0, 0, 0, 0.3);
   font-weight: 500;
@@ -175,7 +175,7 @@
   padding: 6px 16px;
   border-radius: 30px;
   cursor: pointer;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   border: 2px solid #79288094;
   list-style-type: none;
   font-size: 14px;
@@ -208,7 +208,7 @@
   overflow-x: scroll;
   gap: 10px;
   align-items: center;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -221,9 +221,9 @@
   border-radius: 30px;
   height: 36px;
   color: white;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: bold;
-  padding: 5px 10px;
+  padding: 5px 18px;
   cursor: pointer;
 }
 .active-filter-holder {
@@ -235,7 +235,7 @@
   padding: 5px 10px;
   color: white;
   justify-content: center;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   cursor: pointer;
 }
 .active-filter-holder::first-letter {
@@ -252,7 +252,7 @@
   padding: 6px 16px;
   cursor: pointer;
   height: 36px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   border-radius: 30px;
   border: 2px solid #79288094;
   list-style-type: none;
@@ -275,7 +275,7 @@
   /* border-radius: 30px; */
   width: 110px;
   height: 34px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   /* font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -306,8 +306,9 @@
   padding: 12px 5px;
 }
 .products-heading {
-  padding: 0 0 0 20px;
-  font-family: 'Montserrat';
+  padding: 0 0 0 10px;
+  margin-left: 16px;
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -320,14 +321,14 @@
   transition: all 0.3s;
   opacity: 1;
   margin-top: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 .flowers h2 {
   margin: 20px 0 0 16px;
 }
 
 .flowers h3 {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
@@ -339,49 +340,51 @@
 }
 .item {
   width: 179px;
-  height: 245px;
+  height: 270px;
   padding: 9px 25px;
   background: #ffffff;
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   flex-direction: column;
   margin-bottom: 4px;
   margin-top: 2px;
 }
 .item-taste {
-  font-family: 'Nunito';
+  font-family: "Nunito";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 15px;
-  line-height: 16px;
-  text-decoration-line: underline;
+  line-height: 18px;
+  /* text-decoration-line: underline; */
   color: #3a3b3c;
 }
 .item-title {
   text-decoration-line: none;
-  font-family: 'Nunito';
+  font-family: "Nunito";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 14px;
   line-height: 16px;
   color: #3a3b3c;
 }
 .item-thc {
   text-decoration-line: none;
-  font-family: 'Nunito';
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 16px;
   color: #3a3b3cc1;
+  margin-bottom: 0.5rem;
 }
 .item img {
   width: 128px;
   height: 101px;
   object-fit: cover;
+  padding-bottom: 0.5rem;
 }
 .item button {
   margin: 0 auto;
@@ -440,7 +443,7 @@
   object-fit: cover;
 }
 .more {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -457,15 +460,13 @@
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 6rem;
   }
   .left,
   .right {
-    height: 20px;
-    width: 10px;
-  }
-  .products-heading {
-    padding: 0;
+    height: 18px;
+    width: 12px;
   }
   h3 {
     padding-left: 20px;
@@ -473,7 +474,7 @@
   .scrolling {
     height: 15px;
     align-items: center;
-    gap: 15px;
+    gap: 22px;
     padding-right: 20px;
   }
   .shop-filters {
@@ -499,7 +500,7 @@
     /* border-radius: 30px; */
     width: 120px;
     height: 36px;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     /* font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -533,55 +534,53 @@
   }
   .item {
     margin-top: 18px;
-    width: 296px;
-    height: 410px;
+    width: 280px;
+    height: 400px;
     padding: 0 42px;
     background: #ffffff;
     box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: flex;
     justify-content: center;
-
-    gap: 15px;
+    gap: 6px;
     flex-direction: column;
   }
   .item-taste {
-    font-family: 'Nunito';
+    font-family: "Nunito";
     font-style: normal;
-    font-weight: 600;
-    font-size: 21px;
-    line-height: 29px;
-    text-decoration-line: underline;
+    font-size: 19px;
+    line-height: 27px;
     color: #3a3b3c;
   }
   .item-title {
-    font-family: 'Nunito';
+    font-family: "Nunito";
     font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
+    font-size: 17px;
     line-height: 29px;
     color: #3a3b3c;
   }
   .item-thc {
-    font-family: 'Nunito';
+    font-family: "Nunito";
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 17px;
     line-height: 29px;
     color: #3a3b3cc1;
+    margin-bottom: 1rem;
   }
   .item img {
     width: 222px;
     height: 169px;
     object-fit: cover;
+    padding-bottom: 1.25rem;
   }
   .products-section {
     padding: 12px 39px;
   }
   .products-heading {
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-style: normal;
-
+    padding-left: 20px;
     font-size: 20px;
     line-height: 32px;
     color: #3a3b3c;
@@ -589,7 +588,7 @@
   .items-wrapper {
     display: flex;
     margin: 0 auto;
-    gap: 22px;
+    gap: 16px;
     max-width: 1270px;
   }
   .call-btn img,
@@ -647,7 +646,7 @@
     display: block;
   }
   .flowers h3 {
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-style: normal;
     font-weight: 500;
     font-size: 19px;
