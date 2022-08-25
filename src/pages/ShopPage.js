@@ -17,11 +17,17 @@ function ShopPage() {
   const { shoppage } = useParams();
   // console.log(shoppage);
 
-  const scrollingButtons = document.querySelectorAll('.scrolling');
-  const carouselWrapper = document.querySelector('.items-wrapper');
+  // const scrollingButtons = document.querySelectorAll('.scrolling');
+  const scrollingButtonsRef = React.useRef([]);
+
+  const addToRef = (el) => {
+    if (el && !scrollingButtonsRef.current.includes(el)) {
+      scrollingButtonsRef.current.push(el);
+    }
+  };
 
   const handleScrollLeft = (e) => {
-    scrollingButtons.forEach((scroll) => {
+    scrollingButtonsRef.current.forEach((scroll) => {
       let leftButton = scroll.children[1];
       if (leftButton === e.target) {
         let carousel = scroll.parentElement.parentElement.children[1];
@@ -30,7 +36,7 @@ function ShopPage() {
     });
   };
   const handleScrollRight = (e) => {
-    scrollingButtons.forEach((scroll) => {
+    scrollingButtonsRef.current.forEach((scroll) => {
       let rightButton = scroll.children[2];
       if (rightButton === e.target) {
         let carousel = scroll.parentElement.parentElement.children[1];
@@ -345,7 +351,7 @@ function ShopPage() {
             {/* items filtered or not will be displayed here */}
             <div className="inline-wrapper_heading_scrolling">
               <h3>Flower</h3>
-              <div className="scrolling">
+              <div className="scrolling" ref={addToRef}>
                 <p className="more">More</p>
                 <img
                   src={require('../tempIMG/left.png')}
@@ -549,7 +555,7 @@ function ShopPage() {
             {/* items filtered or not will be displayed here */}
             <div className="inline-wrapper_heading_scrolling">
               <h3>Edibles</h3>
-              <div className="scrolling">
+              <div className="scrolling" ref={addToRef}>
                 <p className="more">More</p>
                 <img
                   src={require('../tempIMG/left.png')}
@@ -753,7 +759,7 @@ function ShopPage() {
             {/* items filtered or not will be displayed here */}
             <div className="inline-wrapper_heading_scrolling">
               <h3>Concentrates</h3>
-              <div className="scrolling">
+              <div className="scrolling" ref={addToRef}>
                 <p className="more">More</p>
                 <img
                   src={require('../tempIMG/left.png')}
@@ -957,7 +963,7 @@ function ShopPage() {
             {/* items filtered or not will be displayed here */}
             <div className="inline-wrapper_heading_scrolling">
               <h3>Cartridges</h3>
-              <div className="scrolling">
+              <div className="scrolling" ref={addToRef}>
                 <p className="more">More</p>
                 <img
                   src={require('../tempIMG/left.png')}
@@ -1161,7 +1167,7 @@ function ShopPage() {
             {/* items filtered or not will be displayed here */}
             <div className="inline-wrapper_heading_scrolling">
               <h3>Misc.</h3>
-              <div className="scrolling">
+              <div className="scrolling" ref={addToRef}>
                 <p className="more">More</p>
                 <img
                   src={require('../tempIMG/left.png')}
