@@ -15,7 +15,7 @@ function Authorisation() {
 
   React.useEffect(() => {
     if (activate) {
-      localStorage.setItem('location', location);
+      // localStorage.setItem('location', location);
       navigate('/home', { state: location });
     }
   }, [activate, location, navigate]);
