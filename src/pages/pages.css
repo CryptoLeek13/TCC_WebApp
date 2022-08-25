@@ -685,3 +685,18 @@
     margin-bottom: 40px;
   }
 }
+
+@media screen and (min-width: 1800px) {
+  .shop-filters {
+    margin-left: 100px;
+  }
+  .products-list {
+    margin-left: 100px;
+  }
+  .sort_by-list {
+    margin-left: 100px;
+  }
+  .active-filters {
+    margin-left: 100px;
+  }
+}
