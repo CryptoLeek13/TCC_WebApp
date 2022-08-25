@@ -53,6 +53,7 @@
   width: 180px;
   position: absolute;
   top: 78px;
+  margin-left: 6px;
 }
 .fancy-search input {
   height: 100%;

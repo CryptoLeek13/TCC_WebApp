@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import Button from '../components/Buttons/FilterButton/Button';
-import Navbar from '../components/Navbar/Navbar';
-import ShopCard from '../components/ShopCard/ShopCard';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import Button from "../components/Buttons/FilterButton/Button";
+import Navbar from "../components/Navbar/Navbar";
+import ShopCard from "../components/ShopCard/ShopCard";
 
 function ShopPage() {
   // const { state } = useLocation();
@@ -17,6 +17,7 @@ function ShopPage() {
   const { shoppage } = useParams();
   // console.log(shoppage);
 
+<<<<<<< HEAD
   // const scrollingButtons = document.querySelectorAll('.scrolling');
   const scrollingButtonsRef = React.useRef([]);
 
@@ -25,6 +26,10 @@ function ShopPage() {
       scrollingButtonsRef.current.push(el);
     }
   };
+=======
+  const scrollingButtons = document.querySelectorAll(".scrolling");
+  const carouselWrapper = document.querySelector(".items-wrapper");
+>>>>>>> 96d0bf16dd3383160d0e068e39c8eac047b4c4c5
 
   const handleScrollLeft = (e) => {
     scrollingButtonsRef.current.forEach((scroll) => {
@@ -57,38 +62,38 @@ function ShopPage() {
   const toggleProductList = () => {
     setIsProductListOn((prev) => !prev);
     if (isProductListOn) {
-      productsList.current.style.opacity = '0';
-      productsList.current.style.pointerEvents = 'none';
-      svgProduct.current.style.transform = 'rotate(0deg)';
+      productsList.current.style.opacity = "0";
+      productsList.current.style.pointerEvents = "none";
+      svgProduct.current.style.transform = "rotate(0deg)";
     } else {
-      productsList.current.style.opacity = '1';
-      svgProduct.current.style.transform = 'rotate(180deg)';
-      productsList.current.style.pointerEvents = 'all';
-      sortByList.current.style.opacity = '0';
-      svgSort.current.style.transform = 'rotate(0deg)';
-      sortByList.current.style.pointerEvents = 'none';
+      productsList.current.style.opacity = "1";
+      svgProduct.current.style.transform = "rotate(180deg)";
+      productsList.current.style.pointerEvents = "all";
+      sortByList.current.style.opacity = "0";
+      svgSort.current.style.transform = "rotate(0deg)";
+      sortByList.current.style.pointerEvents = "none";
       setIsSortByOn(false);
     }
   };
   const toggleSortByList = () => {
     setIsSortByOn((prev) => !prev);
     if (isSortByOn) {
-      sortByList.current.style.opacity = '0';
-      sortByList.current.style.pointerEvents = 'none';
-      svgSort.current.style.transform = 'rotate(0deg)';
+      sortByList.current.style.opacity = "0";
+      sortByList.current.style.pointerEvents = "none";
+      svgSort.current.style.transform = "rotate(0deg)";
     } else {
-      sortByList.current.style.opacity = '1';
-      svgSort.current.style.transform = 'rotate(180deg)';
-      sortByList.current.style.pointerEvents = 'all';
-      productsList.current.style.opacity = '0';
-      svgProduct.current.style.transform = 'rotate(0deg)';
-      productsList.current.style.pointerEvents = 'none';
+      sortByList.current.style.opacity = "1";
+      svgSort.current.style.transform = "rotate(180deg)";
+      sortByList.current.style.pointerEvents = "all";
+      productsList.current.style.opacity = "0";
+      svgProduct.current.style.transform = "rotate(0deg)";
+      productsList.current.style.pointerEvents = "none";
       setIsProductListOn(false);
     }
   };
   const addFilterToList = (e) => {
     let currentTarget = e.target;
-    currentTarget.classList.toggle('toggle-style');
+    currentTarget.classList.toggle("toggle-style");
     let temp = filtersList.filter((item) => item === e.target.dataset.filter);
     if (temp < 1) {
       return setFiltersList([...filtersList, e.target.dataset.filter]);
@@ -99,27 +104,27 @@ function ShopPage() {
       );
     }
   };
-  const selectedFilter = document.querySelectorAll('.products-list-item');
-  const selectedFilter2 = document.querySelectorAll('.sort_by-list-item');
-  const flowerSections = document.querySelectorAll('.flowers');
+  const selectedFilter = document.querySelectorAll(".products-list-item");
+  const selectedFilter2 = document.querySelectorAll(".sort_by-list-item");
+  const flowerSections = document.querySelectorAll(".flowers");
 
   const applyFilters = () => {
     setIsSortByOn(false);
     setIsProductListOn(false);
-    sortByList.current.style.opacity = '0';
-    sortByList.current.style.pointerEvents = 'none';
-    productsList.current.style.opacity = '0';
-    productsList.current.style.pointerEvents = 'none';
-    svgProduct.current.style.transform = 'rotate(0deg)';
-    svgSort.current.style.transform = 'rotate(0deg)';
+    sortByList.current.style.opacity = "0";
+    sortByList.current.style.pointerEvents = "none";
+    productsList.current.style.opacity = "0";
+    productsList.current.style.pointerEvents = "none";
+    svgProduct.current.style.transform = "rotate(0deg)";
+    svgSort.current.style.transform = "rotate(0deg)";
 
     flowerSections.forEach((section) => {
       if (filtersList.length > 0) {
         if (filtersList.includes(section.dataset.products)) {
-          section.style.display = 'block';
-        } else section.style.display = 'none';
+          section.style.display = "block";
+        } else section.style.display = "none";
       } else {
-        section.style.display = 'block';
+        section.style.display = "block";
       }
     });
   };
@@ -127,22 +132,22 @@ function ShopPage() {
   const clearFilters = () => {
     setFiltersList([]);
     selectedFilter.forEach((element) => {
-      element.classList.remove('toggle-style');
+      element.classList.remove("toggle-style");
     });
     selectedFilter2.forEach((element) => {
-      element.classList.remove('toggle-style');
+      element.classList.remove("toggle-style");
     });
     flowerSections.forEach((section) => {
-      section.style.display = 'block';
+      section.style.display = "block";
     });
   };
   flowerSections.forEach((section) => {
     if (filtersList.length > 0) {
       if (filtersList.includes(section.dataset.products)) {
-        section.style.display = 'block';
-      } else section.style.display = 'none';
+        section.style.display = "block";
+      } else section.style.display = "none";
     } else {
-      section.style.display = 'block';
+      section.style.display = "block";
     }
   });
   const removeFilter = (e) => {
@@ -154,12 +159,12 @@ function ShopPage() {
 
     selectedFilter.forEach((element) => {
       if (element.dataset.filter === e.target.dataset.filter) {
-        element.classList.remove('toggle-style');
+        element.classList.remove("toggle-style");
       }
     });
     selectedFilter2.forEach((element) => {
       if (element.dataset.filter === e.target.dataset.filter) {
-        element.classList.remove('toggle-style');
+        element.classList.remove("toggle-style");
       }
     });
   };
@@ -171,7 +176,7 @@ function ShopPage() {
         <section className="selected-shop">
           <div className="selected-shop-card">
             <img
-              src={require('../tempIMG/shopImgBlackBorder.png')}
+              src={require("../tempIMG/shopImgBlackBorder.png")}
               alt="shop"
             ></img>
             <div className="card-shop_details">
@@ -186,11 +191,11 @@ function ShopPage() {
               </div>
               <div className="contact">
                 <a href="tel:999999999" className="call-btn">
-                  <img src={require('../tempIMG/call.png')} alt="call"></img>
+                  <img src={require("../tempIMG/call.png")} alt="call"></img>
                 </a>
                 <a href="" className="dir-btn">
                   <img
-                    src={require('../tempIMG/navi.png')}
+                    src={require("../tempIMG/navi.png")}
                     alt="direction"
                   ></img>
                 </a>
@@ -346,7 +351,7 @@ function ShopPage() {
               })}
             </section>
           )}
-          <h2 className="products-heading">All Products</h2>
+          <h2 className="products-heading">Products</h2>
           <section className="flowers" data-products="Flower">
             {/* items filtered or not will be displayed here */}
             <div className="inline-wrapper_heading_scrolling">
@@ -354,12 +359,12 @@ function ShopPage() {
               <div className="scrolling" ref={addToRef}>
                 <p className="more">More</p>
                 <img
-                  src={require('../tempIMG/left.png')}
+                  src={require("../tempIMG/left.png")}
                   className="left"
                   onClick={handleScrollLeft}
                 ></img>
                 <img
-                  src={require('../tempIMG/right.png')}
+                  src={require("../tempIMG/right.png")}
                   className="right"
                   onClick={handleScrollRight}
                 ></img>
@@ -371,7 +376,7 @@ function ShopPage() {
               {/* Also here I will map through the products in API and display them here  */}
               <Link to={`/shop${shoppage}/1`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -398,7 +403,7 @@ function ShopPage() {
 
               <Link to={`/shop${shoppage}/2`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -424,7 +429,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/3`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -450,7 +455,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/4`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -476,7 +481,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/5`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -502,7 +507,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/6`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -558,12 +563,12 @@ function ShopPage() {
               <div className="scrolling" ref={addToRef}>
                 <p className="more">More</p>
                 <img
-                  src={require('../tempIMG/left.png')}
+                  src={require("../tempIMG/left.png")}
                   className="left"
                   onClick={handleScrollLeft}
                 ></img>
                 <img
-                  src={require('../tempIMG/right.png')}
+                  src={require("../tempIMG/right.png")}
                   className="right"
                   onClick={handleScrollRight}
                 ></img>
@@ -575,7 +580,7 @@ function ShopPage() {
               {/* Also here I will map through the products in API and display them here  */}
               <Link to={`/shop${shoppage}/1`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -602,7 +607,7 @@ function ShopPage() {
 
               <Link to={`/shop${shoppage}/2`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -628,7 +633,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/3`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -654,7 +659,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/4`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -680,7 +685,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/5`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -706,7 +711,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/6`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -762,12 +767,12 @@ function ShopPage() {
               <div className="scrolling" ref={addToRef}>
                 <p className="more">More</p>
                 <img
-                  src={require('../tempIMG/left.png')}
+                  src={require("../tempIMG/left.png")}
                   className="left"
                   onClick={handleScrollLeft}
                 ></img>
                 <img
-                  src={require('../tempIMG/right.png')}
+                  src={require("../tempIMG/right.png")}
                   className="right"
                   onClick={handleScrollRight}
                 ></img>
@@ -779,7 +784,7 @@ function ShopPage() {
               {/* Also here I will map through the products in API and display them here  */}
               <Link to={`/shop${shoppage}/1`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -806,7 +811,7 @@ function ShopPage() {
 
               <Link to={`/shop${shoppage}/2`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -832,7 +837,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/3`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -858,7 +863,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/4`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -884,7 +889,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/5`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -910,7 +915,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/6`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -966,12 +971,12 @@ function ShopPage() {
               <div className="scrolling" ref={addToRef}>
                 <p className="more">More</p>
                 <img
-                  src={require('../tempIMG/left.png')}
+                  src={require("../tempIMG/left.png")}
                   className="left"
                   onClick={handleScrollLeft}
                 ></img>
                 <img
-                  src={require('../tempIMG/right.png')}
+                  src={require("../tempIMG/right.png")}
                   className="right"
                   onClick={handleScrollRight}
                 ></img>
@@ -983,7 +988,7 @@ function ShopPage() {
               {/* Also here I will map through the products in API and display them here  */}
               <Link to={`/shop${shoppage}/1`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -1010,7 +1015,7 @@ function ShopPage() {
 
               <Link to={`/shop${shoppage}/2`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -1036,7 +1041,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/3`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -1062,7 +1067,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/4`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -1088,7 +1093,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/5`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -1114,7 +1119,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/6`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -1170,12 +1175,12 @@ function ShopPage() {
               <div className="scrolling" ref={addToRef}>
                 <p className="more">More</p>
                 <img
-                  src={require('../tempIMG/left.png')}
+                  src={require("../tempIMG/left.png")}
                   className="left"
                   onClick={handleScrollLeft}
                 ></img>
                 <img
-                  src={require('../tempIMG/right.png')}
+                  src={require("../tempIMG/right.png")}
                   className="right"
                   onClick={handleScrollRight}
                 ></img>
@@ -1187,7 +1192,7 @@ function ShopPage() {
               {/* Also here I will map through the products in API and display them here  */}
               <Link to={`/shop${shoppage}/1`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -1214,7 +1219,7 @@ function ShopPage() {
 
               <Link to={`/shop${shoppage}/2`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -1240,7 +1245,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/3`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -1266,7 +1271,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/4`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -1292,7 +1297,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/5`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">
@@ -1318,7 +1323,7 @@ function ShopPage() {
               </Link>
               <Link to={`/shop${shoppage}/6`}>
                 <div className="item">
-                  <img src={require('../tempIMG/Rectangle.png')} />
+                  <img src={require("../tempIMG/Rectangle.png")} />
 
                   <p className="item-taste">Lava Cake by Sweet Dirt</p>
                   <p className="item-title">

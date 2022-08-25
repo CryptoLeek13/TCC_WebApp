@@ -13,7 +13,7 @@
   width: 110px;
 }
 .data .card img {
-  height: 140px;
+  height: 150px;
 }
 a {
   text-decoration: none;
@@ -29,7 +29,7 @@ a {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
   padding-bottom: 4px;
   line-height: 16px;
   color: #3a3b3c;
@@ -42,8 +42,8 @@ a {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
-  font-size: 11px;
-  padding-bottom: 10px;
+  font-size: 12px;
+  padding-bottom: 14px;
   line-height: 15px;
 }
 .data .shop-location {

@@ -13,45 +13,47 @@
   width: 100%;
 }
 .shop-details-name {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 14px;
   color: #3a3b3c;
 }
 .product-name {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 18px;
   color: #3a3b3c;
-  padding: 4px 0;
+  padding: 5px 0;
 }
 .product-frame {
   display: flex;
-  padding: 0 23px;
+  padding: 30px 23px;
+  padding-top: 30px;
   border-top: 2px solid rgba(200, 187, 202, 0.5);
 }
 .product-frame img {
   width: 125px;
-  height: 170px;
+  height: 190px;
   object-fit: cover;
+  border-radius: 20px;
 }
 .price-wrapper {
   display: flex;
-  align-items: center;
-  padding: 12px 0 13px;
-  gap: 16px;
+  align-items: baseline;
+  padding: 26px 0 10px;
+  gap: 6px;
 }
 .price {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 20px;
   color: #3a3b3c;
 }
 .quantity {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   width: max-content;
@@ -61,16 +63,16 @@
 .details {
   display: flex;
   gap: 10px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 13px;
   text-align: center;
   color: #3a3b3c;
 }
 .details-wrapper {
   display: flex;
-  margin-left: 17px;
+  margin-left: 20px;
   padding: 15px 0;
   flex-direction: column;
 }
@@ -93,7 +95,7 @@
   background: #f5f2f5;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 24px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
@@ -113,7 +115,7 @@
   display: none;
 }
 .about p:last-child {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   padding: 10px 10px;
   font-weight: 400;
@@ -122,10 +124,10 @@
   color: #3a3b3c;
 }
 .heading {
-  padding: 0 10px;
-  font-family: 'Montserrat';
+  padding: 6px 10px;
+  font-family: "Montserrat";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 18px;
   line-height: 32px;
   color: rgba(0, 0, 0, 0.7);
@@ -133,11 +135,11 @@
 .description {
   padding: 40px 23px;
   width: 100%;
-  max-width: 670px;
   height: max-content;
+  max-width: 350px;
 }
 .description p:last-of-type {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   padding: 10px 10px;
   font-weight: 400;
@@ -152,10 +154,10 @@
   width: 134px;
   height: 39px;
   border: none;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 27px;
   color: rgba(0, 0, 0, 0.7);
 }
@@ -167,29 +169,57 @@
   .details-wrapper {
     display: flex;
     justify-content: center;
+    margin-left: 24px;
+    padding-top: 20px;
+    padding-bottom: 0;
+  }
+  .product-frame {
+    padding-left: 80px;
+    padding-top: 40px;
+    padding-bottom: 50px;
   }
   .product-frame img {
-    width: 222px;
-    height: 252px;
+    width: 200px;
+    height: 250px;
   }
   .shop-details-name {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 400;
   }
   .product-name {
-    font-size: 28px;
+    font-size: 22px;
+    padding: 4px 0;
   }
   .type,
   .thc {
-    font-weight: 400;
-    font-size: 20px;
+    font-size: 16px;
   }
   .price {
-    font-size: 28px;
+    font-size: 21px;
   }
   .quantity {
-    font-weight: 400;
-    font-size: 20px;
+    font-size: 15px;
+  }
+  .price-wrapper {
+    padding: 30px 0 10px;
+    gap: 8px;
+  }
+  .order {
+    width: 150px;
+  }
+  .profiles {
+    padding-left: 80px;
+  }
+  .heading {
+    padding: 10px 10px;
+  }
+  .description {
+    padding-left: 80px;
+    max-width: 670px;
+  }
+  .about {
+    padding-left: 80px;
+    max-width: 670px;
   }
 }
 
@@ -197,7 +227,8 @@
   .about {
     position: absolute;
     top: 50px;
-    right: 30px;
+    right: 80px;
+    max-width: 350px;
   }
   .about img {
     display: block;
