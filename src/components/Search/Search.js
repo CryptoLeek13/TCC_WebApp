@@ -9,8 +9,30 @@ import {
   ComboboxList,
   ComboboxOption
 } from '@reach/combobox';
+import useGeoLocation from '../../hooks/useGeoLocation';
+import Geocode from 'react-geocode';
 
 const Search = (props) => {
+  const geoLocation = useGeoLocation();
+
+  Geocode.setApiKey(process.env.REACT_APP_KEY);
+
+  if (geoLocation.loaded) {
+    Geocode.fromLatLng(
+      geoLocation.coordinates.lat,
+      geoLocation.coordinates.lng
+    ).then(
+      (response) => {
+        const address = response.results[0].formatted_address;
+        setValue(address, false);
+        localStorage.setItem('location', address);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
   const {
     ready,
     value,
@@ -36,7 +58,6 @@ const Search = (props) => {
     //   console.log(err)
     // }
   };
-
   return (
     <label className="search-label">
       <Combobox onSelect={handleSelect} aria-labelledby="demo">

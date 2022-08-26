@@ -29,6 +29,19 @@ function Authorisation() {
       navigate('/home', { state: local });
     }
   });
+
+  React.useEffect(() => {
+    document.addEventListener('keydown', detectKeyDown, true);
+    return () => {
+      document.removeEventListener('keydown', detectKeyDown, true);
+    };
+  }, []);
+  const detectKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      setActivate((prev) => !prev);
+    }
+  };
+
   return (
     <div className="container">
       <img
@@ -49,11 +62,7 @@ function Authorisation() {
           }}
         />
       )}
-      <Search
-        placeholder="Enter Location"
-        location={location}
-        handleLocation={setLocation}
-      />
+      <Search placeholder="Enter Location" />
       <button
         className="entry-button"
         onClick={() => setActivate((prev) => !prev)}

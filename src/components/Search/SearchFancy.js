@@ -37,15 +37,37 @@ function SearchFancy(props) {
     // }
   };
 
+  React.useEffect(() => {
+    document.addEventListener('keydown', detectKeyDown, true);
+    return () => {
+      document.removeEventListener('keydown', detectKeyDown, true);
+    };
+  }, []);
+  const detectKeyDown = (e) => {
+    if (
+      e.key === 'Enter' &&
+      document.querySelector('.fancy-input') === document.activeElement
+    ) {
+      setValue(e.target.value, false);
+      document.querySelector('.fancy-input').blur();
+      clearSuggestions();
+    }
+  };
+
   return (
     <div className="fancy-search">
-      <Combobox onSelect={handleSelect} aria-labelledby="demo">
+      <Combobox
+        onSelect={handleSelect}
+        onKeyDown={detectKeyDown}
+        aria-labelledby="demo"
+      >
         <ComboboxInput
           type="text"
           placeholder={props.placeholder}
           onChange={handleInput}
           value={value}
           disabled={!ready}
+          className="fancy-input"
         />
         <label className="search-underline">
           <svg
