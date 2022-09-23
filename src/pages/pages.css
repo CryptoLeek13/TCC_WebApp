@@ -172,11 +172,11 @@
 }
 .products-list-item {
   width: max-content;
-  padding: 6px 16px;
+  padding: 8px 16px;
   border-radius: 30px;
   cursor: pointer;
   font-family: "Montserrat";
-  border: 2px solid #79288094;
+  border: 1px solid #79288094;
   list-style-type: none;
   font-size: 14px;
   color: #792880;
@@ -251,12 +251,12 @@
 }
 .sort_by-list-item {
   width: max-content;
-  padding: 6px 16px;
+  padding: 8px 16px;
   cursor: pointer;
   height: 36px;
   font-family: "Montserrat";
   border-radius: 30px;
-  border: 2px solid #79288094;
+  border: 1px solid #792880ad;
   list-style-type: none;
   background-color: #ffffff;
   font-size: 14px;
@@ -305,7 +305,7 @@
   width: 10px;
 }
 .products-section {
-  padding: 12px 5px;
+  margin: 12px 16px;
 }
 .products-heading {
   padding: 0 0 0 10px;
@@ -333,7 +333,7 @@
 .flowers h3 {
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 16px;
   line-height: 29px;
   margin-left: 16px;
@@ -341,7 +341,7 @@
   padding-left: 10px;
 }
 .item {
-  width: 180px;
+  width: 170px;
   height: 270px;
   padding: 9px 25px;
   background: #ffffff;
@@ -352,7 +352,7 @@
   gap: 8px;
   flex-direction: column;
   margin-bottom: 4px;
-  margin-top: 2px;
+  margin-top: 0;
 }
 .item-taste {
   font-family: "Nunito";
@@ -393,7 +393,7 @@
 }
 .items-wrapper {
   display: flex;
-  padding: 0 15px;
+  padding: 10px 4px;
   gap: 6px;
   scroll-behavior: smooth;
   overflow-x: scroll;
@@ -412,8 +412,6 @@
 .left {
   border: none;
   outline: none;
-  width: 10px;
-  height: 10px;
   background-color: transparent;
   cursor: pointer;
 }
@@ -421,8 +419,6 @@
   border: none;
   outline: none;
   background-color: transparent;
-  width: 10px;
-  height: 10px;
   cursor: pointer;
 }
 .inline-wrapper_heading_scrolling {
@@ -430,7 +426,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 0;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 .scrolling {
   display: flex;
@@ -439,7 +435,7 @@
 }
 .left,
 .right {
-  height: 16px;
+  height: 12px;
   width: 8px;
   object-fit: cover;
 }
@@ -466,8 +462,8 @@
   }
   .left,
   .right {
-    height: 16px;
-    width: 10px;
+    height: 12px;
+    width: 9px;
   }
   h3 {
     padding-left: 20px;
@@ -544,66 +540,68 @@
     display: none;
   }
   .item {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 270px;
-    height: 380px;
-    padding: 0 42px;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 210px;
+    height: 300px;
+    padding: 0 40px;
     background: #ffffff;
-    box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: flex;
     justify-content: center;
-    gap: 6px;
+    gap: 2px;
     flex-direction: column;
   }
   .item-taste {
     font-family: "Nunito";
     font-style: normal;
-    font-size: 19px;
-    line-height: 27px;
+    font-size: 17px;
+    line-height: 24px;
     color: #3a3b3c;
   }
   .item-title {
     font-family: "Nunito";
     font-style: normal;
-    font-size: 17px;
-    line-height: 29px;
+    font-size: 15px;
+    line-height: 26px;
     color: #3a3b3c;
   }
   .item-thc {
     font-family: "Nunito";
     font-style: normal;
     font-weight: 500;
-    font-size: 17px;
-    line-height: 29px;
+    font-size: 15px;
+    line-height: 22px;
     color: #3a3b3cc1;
-    margin-bottom: 1rem;
+    margin-bottom: 0.3rem;
   }
   .item img {
-    width: 186px;
-    height: 169px;
+    width: 140px;
+    height: 120px;
     object-fit: cover;
-    padding-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
   }
   .products-section {
-    margin: 12px 20px;
+    margin: 12px 40px;
   }
   .products-heading {
     font-family: "Montserrat";
     font-style: normal;
     padding-left: 10px;
-    font-size: 21px;
+    font-size: 19px;
     line-height: 32px;
     color: #3a3b3c;
-    margin-top: 120px;
-    margin-bottom: 30px;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    max-width: 1000px;
   }
   .items-wrapper {
     display: flex;
     margin: 0 auto;
     gap: 16px;
-    max-width: 1144px;
+    max-width: 950px;
+    padding: 10px 10px;
   }
   .call-btn img,
   .dir-btn img {
@@ -624,8 +622,9 @@
   }
   .inline-wrapper_heading_scrolling {
     padding-bottom: 0px;
-    max-width: 1144px;
+    max-width: 950px;
     margin: 0 auto;
+    margin-bottom: 12px;
   }
   .products-list {
     margin-top: 0;
@@ -648,12 +647,12 @@
   }
   .products-list-item {
     width: max-content;
-    padding: 7px 19px;
+    padding: 8px 19px;
     font-size: 14px;
   }
   .sort_by-list-item {
     width: max-content;
-    padding: 7px 19px;
+    padding: 8px 19px;
     font-size: 14px;
   }
 }
@@ -664,8 +663,7 @@
   .flowers h3 {
     font-family: "Montserrat";
     font-style: normal;
-    font-weight: 500;
-    font-size: 19px;
+    font-size: 17px;
     margin-bottom: 0;
     padding-left: 20px;
     margin-left: 0;
@@ -674,15 +672,12 @@
     font-family: "Montserrat";
     font-style: normal;
     padding-left: 20px;
-    font-size: 21px;
     line-height: 32px;
     color: #3a3b3c;
-    margin-top: 140px;
-    margin-bottom: 40px;
-    max-width: 1144px;
+    max-width: 950px;
     margin: 0 auto;
-    margin-top: 140px;
-    margin-bottom: 40px;
+    margin-top: 100px;
+    margin-bottom: 10px;
   }
 }
 
